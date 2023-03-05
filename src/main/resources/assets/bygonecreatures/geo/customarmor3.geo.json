@@ -1,0 +1,90 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "bipedHead",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "armorHead",
+					"parent": "bipedHead",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "bipedBody",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "armorBody",
+					"parent": "bipedBody",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "bipedRightArm",
+					"pivot": [-4, 22, 0]
+				},
+				{
+					"name": "armorRightArm",
+					"parent": "bipedRightArm",
+					"pivot": [-4, 22, 0]
+				},
+				{
+					"name": "bipedLeftArm",
+					"pivot": [4, 22, 0]
+				},
+				{
+					"name": "armorLeftArm",
+					"parent": "bipedLeftArm",
+					"pivot": [4, 22, 0]
+				},
+				{
+					"name": "bipedLeftLeg",
+					"pivot": [-2, 12, 0]
+				},
+				{
+					"name": "armorLeftLeg",
+					"parent": "bipedLeftLeg",
+					"pivot": [-2, 12, 0]
+				},
+				{
+					"name": "armorLeftBoot",
+					"parent": "bipedLeftLeg",
+					"pivot": [3.52341, 2.96175, 1.5019],
+					"rotation": [0, -180, 0],
+					"cubes": [
+						{"origin": [10.91701, 0.92158, -4.03576], "size": [0, 3, 7], "pivot": [10.47659, 2.96175, 1.5019], "rotation": [-27.5, -32.5, 0], "uv": [26, 25], "mirror": true},
+						{"origin": [7, 0, 1], "size": [4, 5, 4], "pivot": [10.47659, 2.96175, 1.5019], "rotation": [0, 0, 0], "uv": [32, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "bipedRightLeg",
+					"pivot": [2, 12, 0]
+				},
+				{
+					"name": "armorRightLeg",
+					"parent": "bipedRightLeg",
+					"pivot": [2, 12, 0]
+				},
+				{
+					"name": "armorRightBoot",
+					"parent": "bipedRightLeg",
+					"pivot": [2, 12, 0],
+					"cubes": [
+						{"origin": [3, 0, 1], "size": [4, 5, 4], "pivot": [3.52341, 2.96175, 1.5019], "rotation": [-180, 0, 180], "uv": [0, 32], "mirror": true},
+						{"origin": [3.08299, 0.92158, -4.03576], "size": [0, 3, 7], "pivot": [3.52341, 2.96175, 1.5019], "rotation": [152.5, -32.5, 180], "uv": [12, 25], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

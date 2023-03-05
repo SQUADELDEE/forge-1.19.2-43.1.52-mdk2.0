@@ -1,15 +1,34 @@
 package net.jacob.bygonecreatures;
 
 import com.mojang.logging.LogUtils;
+import net.jacob.bygonecreatures.block.ModBlocks;
+import net.jacob.bygonecreatures.entity.ModEntityTypes;
+import net.jacob.bygonecreatures.entity.client.DodoRenderer;
+import net.jacob.bygonecreatures.entity.client.network.LuggageNetworkHandler;
+import net.jacob.bygonecreatures.entity.custom.DragonflyEntity;
+import net.jacob.bygonecreatures.entity.custom.ProtoceratopsEntity;
+import net.jacob.bygonecreatures.item.ModItems;
+import net.jacob.bygonecreatures.world.feature.tree.ModConfiguredFeatures;
+import net.jacob.bygonecreatures.world.feature.tree.ModPlacedFeatures;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Rabbit;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +41,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BygoneCreatures.MOD_ID)
@@ -30,11 +50,13 @@ public class BygoneCreatures
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "bygonecreatures";
     // Directly reference a slf4j logger
+
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "bygonecreatures" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     // Create a Deferred Register to hold Items which will all be registered under the "bygonecreatures" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+
 
     // Creates a new Block with the id "bygonecreatures:example_block", combining the namespace and path
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
@@ -44,6 +66,14 @@ public class BygoneCreatures
     public BygoneCreatures()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
+
+
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -55,14 +85,67 @@ public class BygoneCreatures
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        GeckoLib.initialize();
+        ModEntityTypes.register(modEventBus);
+
+
+
+
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
+
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        SpawnPlacements.register(ModEntityTypes.DRAGONFLY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, DragonflyEntity::checkDragonflySpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.PROTOCERATOPS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ProtoceratopsEntity::checkProtoSpawnRules);
+
+        LuggageNetworkHandler.init();
+
+
+        event.enqueueWork(() -> {
+                    SpawnPlacements.register(ModEntityTypes.GLYPTODON.get(),
+                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            Animal::checkAnimalSpawnRules);
+                    SpawnPlacements.register(ModEntityTypes.RAPTOR.get(),
+                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            Animal::checkAnimalSpawnRules);
+                    SpawnPlacements.register(ModEntityTypes.TERRORBIRD.get(),
+                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            Animal::checkAnimalSpawnRules);
+
+//                    SpawnPlacements.register(ModEntityTypes.DRAGONFLY.get(),
+//                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+//                            DragonflyEntity::checkDragonflySpawnRules);
+
+                    SpawnPlacements.register(ModEntityTypes.CEPHALASPIS.get(),
+                        SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                        AbstractFish::checkSurfaceWaterAnimalSpawnRules);
+
+                    SpawnPlacements.register(ModEntityTypes.ARMOREDFISH.get(),
+                            SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            AbstractFish::checkSurfaceWaterAnimalSpawnRules);
+
+                    SpawnPlacements.register(ModEntityTypes.ICHTHYOSAUR.get(),
+                        SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                        WaterAnimal::checkSurfaceWaterAnimalSpawnRules);
+
+                    SpawnPlacements.register(ModEntityTypes.DODO.get(),
+                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            Animal::checkAnimalSpawnRules);
+
+        });
+
     }
+
+
+
+
+
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
@@ -83,5 +166,8 @@ public class BygoneCreatures
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
+
+
+
     }
 }

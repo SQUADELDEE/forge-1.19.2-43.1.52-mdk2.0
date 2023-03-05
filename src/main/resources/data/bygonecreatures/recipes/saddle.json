@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:protoshed"
+    },
+
+    "*": {
+      "item": "minecraft:iron_nugget"
+    },
+
+    "/": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "###",
+    "/ /",
+    "* *"
+  ],
+  "result": {
+    "item": "minecraft:saddle"
+  }
+}

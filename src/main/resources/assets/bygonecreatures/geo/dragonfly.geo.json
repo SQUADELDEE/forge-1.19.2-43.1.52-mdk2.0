@@ -1,0 +1,175 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.dragonfly",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "centralbody",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "legs",
+					"parent": "centralbody",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "bone",
+					"parent": "legs",
+					"pivot": [-3.5, 5, 4],
+					"cubes": [
+						{"origin": [-6, 0, 4], "size": [3, 6, 0], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "bone2",
+					"parent": "legs",
+					"pivot": [-3.5, 5, 1],
+					"cubes": [
+						{"origin": [-6, 0, 1], "size": [3, 6, 0], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "bone3",
+					"parent": "legs",
+					"pivot": [-3.5, 5, -2],
+					"cubes": [
+						{"origin": [-6, 0, -2], "size": [3, 6, 0], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "bone4",
+					"parent": "legs",
+					"pivot": [3.5, 5, 1],
+					"cubes": [
+						{"origin": [3, 0, 1], "size": [3, 6, 0], "uv": [15, 33]}
+					]
+				},
+				{
+					"name": "bone5",
+					"parent": "legs",
+					"pivot": [3.5, 5, 4],
+					"cubes": [
+						{"origin": [3, 0, 4], "size": [3, 6, 0], "uv": [0, 42]}
+					]
+				},
+				{
+					"name": "bone6",
+					"parent": "legs",
+					"pivot": [3.5, 5, -2],
+					"cubes": [
+						{"origin": [3, 0, -2], "size": [3, 6, 0], "uv": [0, 42]}
+					]
+				},
+				{
+					"name": "upperwire",
+					"parent": "centralbody",
+					"pivot": [0, 5, 0]
+				},
+				{
+					"name": "head",
+					"parent": "upperwire",
+					"pivot": [0, 6.83333, -6.5],
+					"cubes": [
+						{"origin": [-4, 5, -8], "size": [2, 4, 3], "uv": [0, 16]},
+						{"origin": [2, 5, -8], "size": [2, 4, 3], "uv": [23, 16]},
+						{"origin": [-2, 4, -8], "size": [4, 5, 3], "uv": [22, 37]}
+					]
+				},
+				{
+					"name": "mandible",
+					"parent": "head",
+					"pivot": [1, 4, -7],
+					"cubes": [
+						{"origin": [0, 3, -7], "size": [2, 2, 0], "uv": [0, 10]}
+					]
+				},
+				{
+					"name": "mandible2",
+					"parent": "head",
+					"pivot": [-1, 4, -7],
+					"cubes": [
+						{"origin": [-2, 3, -7], "size": [2, 2, 0], "uv": [0, 12]}
+					]
+				},
+				{
+					"name": "wings",
+					"parent": "upperwire",
+					"pivot": [12, 10, 2.5]
+				},
+				{
+					"name": "bone7",
+					"parent": "wings",
+					"pivot": [-2.39859, 9, -0.90743],
+					"cubes": [
+						{"origin": [-23, 9, -6], "size": [22, 0, 4], "pivot": [-12, 10, -2], "rotation": [0, -17.5, 0], "uv": [0, 12]}
+					]
+				},
+				{
+					"name": "bone8",
+					"parent": "wings",
+					"pivot": [2.8042, 9, 1.98717],
+					"cubes": [
+						{"origin": [1, 9, 2], "size": [22, 0, 4], "pivot": [12, 10, 2.5], "rotation": [0, -7.5, 0], "uv": [0, 4]}
+					]
+				},
+				{
+					"name": "bone9",
+					"parent": "wings",
+					"pivot": [-2.80421, 9, 1.98717],
+					"cubes": [
+						{"origin": [-23, 9, 2], "size": [22, 0, 4], "pivot": [-12, 10, 2.5], "rotation": [0, 7.5, 0], "uv": [0, 12]}
+					]
+				},
+				{
+					"name": "bone10",
+					"parent": "wings",
+					"pivot": [2.39859, 9, -0.90743],
+					"cubes": [
+						{"origin": [1, 9, -6], "size": [22, 0, 4], "pivot": [12, 10, -2], "rotation": [0, 17.5, 0], "uv": [0, 4]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "upperwire",
+					"pivot": [0, 7, 6],
+					"cubes": [
+						{"origin": [-2, 5, 6], "size": [4, 4, 10], "uv": [24, 23]}
+					]
+				},
+				{
+					"name": "rearseg",
+					"parent": "tail",
+					"pivot": [0, 7, 15.5],
+					"cubes": [
+						{"origin": [-2, 6, 16], "size": [4, 2, 7], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "flail",
+					"parent": "rearseg",
+					"pivot": [-1, 4, 23],
+					"cubes": [
+						{"origin": [2, 2, 25], "size": [2, 5, 0], "pivot": [1, 4, 23], "rotation": [64.06505, 14.47751, -26.56505], "uv": [0, 5]},
+						{"origin": [-4, 2, 25], "size": [2, 5, 0], "pivot": [-1, 4, 23], "rotation": [64.06505, -14.47751, 26.56505], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "core",
+					"parent": "upperwire",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 4, -5], "size": [6, 6, 11], "uv": [0, 16]}
+					]
+				}
+			]
+		}
+	]
+}

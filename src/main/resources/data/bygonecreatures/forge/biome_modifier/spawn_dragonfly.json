@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+     "minecraft:desert"
+  ],
+  "spawners": {
+    "type": "bygonecreatures:dragonfly",
+    "weight": 1,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

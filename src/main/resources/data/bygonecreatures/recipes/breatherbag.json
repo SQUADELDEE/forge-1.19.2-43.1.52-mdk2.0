@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:embryocore"
+    },
+
+    "*": {
+      "item": "bygonecreatures:protoshed"
+    },
+
+    "/": {
+      "item": "bygonecreatures:glyptodonscute"
+    }
+
+
+  },
+  "pattern": [
+    " * ",
+    "/#/",
+    " * "
+  ],
+  "result": {
+    "item": "bygonecreatures:breatherbag"
+  }
+}

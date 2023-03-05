@@ -1,0 +1,99 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.Diplocaulus",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "skeleton",
+					"pivot": [-8, 0, 1]
+				},
+				{
+					"name": "centralbody",
+					"parent": "skeleton",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "middle",
+					"parent": "centralbody",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 0, -10], "size": [8, 4, 14], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "arm1",
+					"parent": "centralbody",
+					"pivot": [-3.12058, 1.13053, -8.4578],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [6, 2, 2], "pivot": [-6, 1, -7], "rotation": [-3.88714, 27.24513, -8.44236], "uv": [30, 8]}
+					]
+				},
+				{
+					"name": "arm2",
+					"parent": "centralbody",
+					"pivot": [3.12058, 1.13053, -8.4578],
+					"cubes": [
+						{"origin": [2, 0, -8], "size": [6, 2, 2], "pivot": [6, 1, -7], "rotation": [-3.88714, -27.24513, 8.44236], "uv": [0, 22]}
+					]
+				},
+				{
+					"name": "neck",
+					"parent": "centralbody",
+					"pivot": [0, 1, -10],
+					"cubes": [
+						{"origin": [-2, 0, -16], "size": [4, 2, 6], "uv": [18, 26]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "neck",
+					"pivot": [-4, 2, -13],
+					"cubes": [
+						{"origin": [-8, 0, -14], "size": [10, 4, 2], "pivot": [-4, 2, -13], "rotation": [117.5, 27.5, 0], "uv": [0, 26]},
+						{"origin": [-2, 0, -14], "size": [10, 4, 2], "pivot": [4, 2, -13], "rotation": [117.5, -27.5, 0], "uv": [18, 20]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "skeleton",
+					"pivot": [0, 2, 4],
+					"cubes": [
+						{"origin": [-2, 0, 4], "size": [4, 4, 4], "uv": [30, 0]}
+					]
+				},
+				{
+					"name": "paddle",
+					"parent": "tail",
+					"pivot": [0, 2, 8],
+					"cubes": [
+						{"origin": [0, 0, 8], "size": [0, 4, 10], "uv": [0, 8]}
+					]
+				},
+				{
+					"name": "backleg2",
+					"parent": "tail",
+					"pivot": [-2.26193, 2, 6.66344],
+					"cubes": [
+						{"origin": [-12, 2, 8], "size": [6, 0, 2], "pivot": [-8, 0, 1], "rotation": [0, 52.5, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "backleg",
+					"parent": "tail",
+					"pivot": [2.26193, 2, 6.66344],
+					"cubes": [
+						{"origin": [6, 2, 8], "size": [6, 0, 2], "pivot": [8, 0, 1], "rotation": [0, -52.5, 0], "uv": [0, 2]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+
+    "*": {
+      "item": "minecraft:fishing_rod"
+    }
+
+
+  },
+  "pattern": [
+    "  *",
+    " # ",
+    "   "
+  ],
+  "result": {
+    "item": "bygonecreatures:wheatonastick"
+  }
+}

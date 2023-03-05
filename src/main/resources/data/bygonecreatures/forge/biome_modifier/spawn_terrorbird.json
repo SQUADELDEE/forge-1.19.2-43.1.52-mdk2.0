@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:plains"
+  ],
+  "spawners": {
+    "type": "bygonecreatures:terrorbird",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

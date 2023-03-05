@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bonemeal",
+  "key": {
+    "?": {
+      "item": "bygonecreatures:dung"
+    },
+
+    "#": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#?#",
+    " # "
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:bone_meal"
+  }
+}

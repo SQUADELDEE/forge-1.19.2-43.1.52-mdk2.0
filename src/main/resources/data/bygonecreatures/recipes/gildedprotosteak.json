@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:protosteak"
+    },
+
+    "*": {
+      "item": "minecraft:gold_nugget"
+    }
+
+
+  },
+  "pattern": [
+    "***",
+    "*#*",
+    "***"
+  ],
+  "result": {
+    "item": "bygonecreatures:gildedprotosteak"
+  }
+}

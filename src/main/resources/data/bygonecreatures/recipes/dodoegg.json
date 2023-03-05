@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bygonecreatures:dodoeggcrate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bygonecreatures:dodoegg"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:itypeskull"
+    },
+
+    "?": {
+      "item": "bygonecreatures:itypetooth"
+    },
+
+    "&": {
+      "item": "minecraft:bone"
+    }
+  },
+  "pattern": [
+    "?#?",
+    "?#?",
+    " & "
+  ],
+  "result": {
+    "item": "bygonecreatures:bonecleaver"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:sparse_jungle", "minecraft:old_growth_birch_forest"
+  ],
+  "spawners": {
+    "type": "bygonecreatures:dodo",
+    "weight": 60,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}
