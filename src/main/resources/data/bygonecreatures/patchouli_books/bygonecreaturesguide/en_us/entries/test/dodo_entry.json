@@ -1,0 +1,24 @@
+{
+  "name": "Dodo",
+  "icon": "bygonecreatures:dodospawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/dodo.png"],
+      "title": "Dodo"
+
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "bygonecreatures:cookeddodomeat",
+      "recipe2": "bygonecreatures:cookeddodoegg",
+      "text": "A medium sized bird that wanders sparse jungle and old growth birch biomes. Bred with beetroot seeds. Drops its meat and feathers which can be cooked, as well as lays eggs which can be cooked. Eggs can be made into a crate:"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:dodoeggcrate"
+    }
+  ]
+}

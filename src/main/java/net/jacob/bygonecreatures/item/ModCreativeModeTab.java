@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab BygoneCreatures_TAB = new CreativeModeTab("bygonecreaturestab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.DODOEGG.get());
+            return new ItemStack(ModItems.EMBRYOCORE.get());
         }
     };
 }

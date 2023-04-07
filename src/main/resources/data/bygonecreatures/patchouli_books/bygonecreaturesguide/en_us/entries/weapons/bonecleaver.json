@@ -1,0 +1,17 @@
+{
+  "name": "Ichthy Bone Cleaver",
+  "icon": "bygonecreatures:bonecleaver",
+  "category": "bygonecreatures:weapons",
+  "pages": [
+    {
+
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:bonecleaver"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "High power and speed weapon with no paticularly special abilities at the moment. Stands alongside diamond in damage. Made from parts dropped by ichthyosaurs."
+    }
+  ]
+}

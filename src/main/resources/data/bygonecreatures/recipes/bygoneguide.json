@@ -1,0 +1,12 @@
+{
+  "type": "patchouli:shapeless_book_recipe",
+  "ingredients": [
+    {
+      "item": "bygonecreatures:dodoegg"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "book": "bygonecreatures:bygonecreaturesguide"
+}

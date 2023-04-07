@@ -2,11 +2,9 @@ package net.jacob.bygonecreatures.item;
 
 
 import net.jacob.bygonecreatures.BygoneCreatures;
+import net.jacob.bygonecreatures.block.ModBlocks;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
-import net.jacob.bygonecreatures.item.custom.BreatherSet;
-import net.jacob.bygonecreatures.item.custom.DodoEggItem;
-import net.jacob.bygonecreatures.item.custom.DragonflyBootsItem;
-import net.jacob.bygonecreatures.item.custom.ItemModFishBucket;
+import net.jacob.bygonecreatures.item.custom.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
@@ -19,6 +17,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, BygoneCreatures.MOD_ID);
+
+//    public static final RegistryObject<Item> ANIMATED_BLOCK_ITEM = ITEMS.register("biterblock_item",
+//            () -> new AnimatedBlockItem(ModBlocks.ANIMATED_BLOCK.get(),
+//                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
     public static final RegistryObject<Item> DUNG = ITEMS.register("dung",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
@@ -39,6 +41,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> ANEMONEGEL = ITEMS.register("anemonegel",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> GRUB = ITEMS.register("grub",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> TRAPBUG = ITEMS.register("trapbug",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
 
     public static final RegistryObject<Item> SAGOCONE = ITEMS.register("sagocone",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
@@ -129,6 +138,16 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
     public static final RegistryObject<Item> PROTOSPAWNEGG = ITEMS.register("protospawnegg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.PROTOCERATOPS,0xffd700, 0xbf9000,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> AUKSPAWNEGG = ITEMS.register("aukspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.AUK,0x744700, 0xeeeeee,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+    public static final RegistryObject<Item> MOUSESPAWNEGG = ITEMS.register("mousespawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.MOUSE,0x5b5b5b, 0xeeeeee,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+    public static final RegistryObject<Item> ANOMALOCARISSPAWNEGG = ITEMS.register("anomalocarisspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ANOMALOCARIS,0xf54f4f, 0x744700,
                     new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
 

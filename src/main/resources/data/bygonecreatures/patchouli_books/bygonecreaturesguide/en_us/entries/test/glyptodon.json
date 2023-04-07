@@ -1,0 +1,31 @@
+{
+  "name": "Glyptodon",
+  "icon": "bygonecreatures:glyptodonspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/glypto.png"],
+      "title": "Glyptodon"
+
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "bygonecreatures:cookedglyptodonmeat",
+      "text": "Large mammal that wanders and sleeps on the savannah. Eats grass and drops its dung, which can be combined with dirt to create multiple bone meal. Can be equipped with a saddle and ridden with wheat on a stick. Additionally, has an inventory that can be accessed by clicking it while crouching. It is bred with wheat."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:bone_meal",
+      "recipe2": "bygonecreatures:wheatonastick"
+
+    },
+    {
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/saddled.png"],
+      "text": "A saddled glytpodon with an inventory."
+
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Meganeuropsis Dragonfly",
+  "icon": "bygonecreatures:dragonflyspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/drag.png"],
+      "title": "Meganeuropsis Dragonfly"
+
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:dragonflyboots",
+      "text": "This large insect can be seen flying through deserts hunting rabbits. They can be slain to drop their carapace, which can be used to craft boots that grant speed and jump boost. They are completely passive."
+    }
+  ]
+}

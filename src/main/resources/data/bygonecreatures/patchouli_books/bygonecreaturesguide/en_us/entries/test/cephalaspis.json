@@ -1,0 +1,18 @@
+{
+  "name": "Cephalaspis",
+  "icon": "bygonecreatures:cephaspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/ceph.png"],
+      "title": "Cephalaspis"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A fish found swimming commonly in rivers. Currently has no use other than to be bucketed for decoration."
+    }
+  ]
+}

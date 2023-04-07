@@ -1,0 +1,120 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.auk",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "holder",
+					"pivot": [0, 2, 0]
+				},
+				{
+					"name": "bone",
+					"parent": "holder",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "foot2",
+					"parent": "bone",
+					"pivot": [4, -0.102, -3.49851],
+					"cubes": [
+						{"origin": [2, -0.102, -6.99851], "size": [4, 0, 7], "uv": [27, 9]}
+					]
+				},
+				{
+					"name": "rearfeather",
+					"parent": "bone",
+					"pivot": [0, 1, 3.5],
+					"cubes": [
+						{"origin": [-2, 1, 3], "size": [4, 0, 7], "uv": [0, 27]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "bone",
+					"pivot": [4.5, 14, 1],
+					"cubes": [
+						{"origin": [4, 6, -1], "size": [1, 8, 4], "uv": [43, 5]}
+					]
+				},
+				{
+					"name": "wing",
+					"parent": "bone",
+					"pivot": [-4.5, 14, 1],
+					"cubes": [
+						{"origin": [-5, 6, -1], "size": [1, 8, 4], "uv": [16, 41]}
+					]
+				},
+				{
+					"name": "neckhold",
+					"parent": "bone",
+					"pivot": [0, 14, 0]
+				},
+				{
+					"name": "neckwiggler",
+					"parent": "neckhold",
+					"pivot": [0.5, 18.5, -1],
+					"cubes": [
+						{"origin": [-2, 15, -2], "size": [4, 8, 4], "pivot": [0.5, 18.5, -1], "rotation": [-17.5, 0, 0], "uv": [0, 34]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "neckhold",
+					"pivot": [0, 24, -0.5],
+					"cubes": [
+						{"origin": [-3, 21, -5], "size": [6, 6, 9], "uv": [25, 18]}
+					]
+				},
+				{
+					"name": "beak",
+					"parent": "head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "bottombeak",
+					"parent": "beak",
+					"pivot": [0, 22, -4],
+					"cubes": [
+						{"origin": [-2, 21, -11], "size": [4, 2, 6], "uv": [17, 33]}
+					]
+				},
+				{
+					"name": "topbeak",
+					"parent": "beak",
+					"pivot": [0, 23.5, -4.3],
+					"cubes": [
+						{"origin": [-2, 23, -12], "size": [4, 2, 7], "uv": [25, 0]},
+						{"origin": [-2, 22, -12], "size": [1, 1, 1], "uv": [4, 6]},
+						{"origin": [1, 22, -12], "size": [1, 1, 1], "uv": [0, 6]},
+						{"origin": [-1, 23, -11], "size": [2, 3, 6], "uv": [31, 35]},
+						{"origin": [-1, 22, -13], "size": [2, 4, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "core",
+					"parent": "bone",
+					"pivot": [0, 14, 0],
+					"cubes": [
+						{"origin": [-4, 0, -5], "size": [8, 18, 9], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "foot",
+					"parent": "bone",
+					"pivot": [-4.05507, 0.24781, -3.43498],
+					"cubes": [
+						{"origin": [-6.05678, -0.08546, -6.94118], "size": [4, 0, 7], "uv": [8, 27]}
+					]
+				}
+			]
+		}
+	]
+}

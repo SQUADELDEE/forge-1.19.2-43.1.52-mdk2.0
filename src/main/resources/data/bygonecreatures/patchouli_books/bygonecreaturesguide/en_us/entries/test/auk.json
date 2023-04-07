@@ -1,0 +1,18 @@
+{
+  "name": "Great Auk",
+  "icon": "bygonecreatures:aukspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/auk.png"],
+      "title": "Great Auk"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "This large shorebird can be found in larger beach biomes, where they will wander on land or swim after fish to catch and eat them. They will all vanilla fish types and can be bred with them. They will pick up andesite dropped in front of them and use it to sharpen their beaks, polishing the andesite and creating an iron nugget in the process."
+    }
+  ]
+}

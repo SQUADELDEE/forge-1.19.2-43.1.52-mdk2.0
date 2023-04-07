@@ -72,6 +72,26 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(ProtoceratopsEntity::new, MobCategory.CREATURE)
                             .sized(1.0f, 1.0f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "protoceratops").toString()));
+
+
+    public static final RegistryObject<EntityType<AukEntity>> AUK =
+            ENTITY_TYPES.register("auk",
+                    () -> EntityType.Builder.of(AukEntity::new, MobCategory.CREATURE)
+                            .sized(0.8f, 1.2f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "auk").toString()));
+
+    public static final RegistryObject<EntityType<MouseEntity>> MOUSE =
+            ENTITY_TYPES.register("mouse",
+                    () -> EntityType.Builder.of(MouseEntity::new, MobCategory.CREATURE)
+                            .sized(0.8f, 0.6f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "mouse").toString()));
+
+
+    public static final RegistryObject<EntityType<AnomaloEntity>> ANOMALOCARIS =
+            ENTITY_TYPES.register("anomalocaris",
+                    () -> EntityType.Builder.of(AnomaloEntity::new, MobCategory.WATER_CREATURE)
+                            .sized(0.8f, 0.6f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "anomalocaris").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

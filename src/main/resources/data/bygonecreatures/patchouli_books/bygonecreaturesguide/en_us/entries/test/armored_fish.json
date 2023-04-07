@@ -1,0 +1,19 @@
+{
+  "name": "Armored Fish",
+  "icon": "bygonecreatures:armoredfishspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/armo.png"],
+      "title": "Armored Fish"
+
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "bygonecreatures:cookedarmoredfish",
+      "text": "A fish found swimming in most oceans. Drops an edible fish type, which can be eaten for more nutrition than normal fish. Can be bucketed."
+    }
+  ]
+}

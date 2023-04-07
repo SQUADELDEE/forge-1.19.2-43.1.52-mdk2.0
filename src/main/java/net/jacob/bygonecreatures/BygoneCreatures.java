@@ -2,22 +2,19 @@ package net.jacob.bygonecreatures;
 
 import com.mojang.logging.LogUtils;
 import net.jacob.bygonecreatures.block.ModBlocks;
+import net.jacob.bygonecreatures.block.entity.ModBlockEntities;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
-import net.jacob.bygonecreatures.entity.client.DodoRenderer;
 import net.jacob.bygonecreatures.entity.client.network.LuggageNetworkHandler;
+import net.jacob.bygonecreatures.entity.custom.AukEntity;
 import net.jacob.bygonecreatures.entity.custom.DragonflyEntity;
 import net.jacob.bygonecreatures.entity.custom.ProtoceratopsEntity;
 import net.jacob.bygonecreatures.item.ModItems;
 import net.jacob.bygonecreatures.world.feature.tree.ModConfiguredFeatures;
 import net.jacob.bygonecreatures.world.feature.tree.ModPlacedFeatures;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -28,7 +25,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -73,6 +69,8 @@ public class BygoneCreatures
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+
 
 
         // Register the commonSetup method for modloading
@@ -103,6 +101,8 @@ public class BygoneCreatures
 
         SpawnPlacements.register(ModEntityTypes.PROTOCERATOPS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ProtoceratopsEntity::checkProtoSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.AUK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AukEntity::checkaukSpawnRules);
+
         LuggageNetworkHandler.init();
 
 
@@ -110,6 +110,7 @@ public class BygoneCreatures
                     SpawnPlacements.register(ModEntityTypes.GLYPTODON.get(),
                             SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                             Animal::checkAnimalSpawnRules);
+
                     SpawnPlacements.register(ModEntityTypes.RAPTOR.get(),
                             SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                             Animal::checkAnimalSpawnRules);

@@ -1,0 +1,17 @@
+{
+  "name": "Dragonfly Boots",
+  "icon": "bygonecreatures:dragonflyboots",
+  "category": "bygonecreatures:armor",
+  "pages": [
+    {
+
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:dragonflyboots"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Gives speed boost and jump boost. Crafted with four dragonfly carapaces, arranged in the boot pattern."
+    }
+  ]
+}

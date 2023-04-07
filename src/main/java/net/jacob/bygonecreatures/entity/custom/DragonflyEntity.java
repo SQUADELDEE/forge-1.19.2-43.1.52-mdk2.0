@@ -489,7 +489,7 @@ public class DragonflyEntity extends Animal implements IAnimatable, NeutralMob{
 
     public static AttributeSupplier.Builder setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
+                .add(Attributes.MAX_HEALTH, 8.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.FLYING_SPEED, 5f)

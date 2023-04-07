@@ -32,9 +32,9 @@ public class RaptorRenderer extends GeoEntityRenderer<RaptorEntity> {
                                     ResourceLocation textureLocation) {
 
         if(animatable.isBaby()) {
-            stack.scale(0.4F, 0.4F, 0.4F);
+            stack.scale(0.5F, 0.5F, 0.5F);
         } else {
-            stack.scale(0.8F, 0.8F, 0.8F);
+            stack.scale(0.9F, 0.9F, 0.9F);
         }
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }

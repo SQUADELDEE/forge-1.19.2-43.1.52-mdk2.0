@@ -35,6 +35,9 @@ minecraft {
     // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
 
             // Recommended logging data for a userdev environment
@@ -117,6 +120,8 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url 'https://maven.blamejared.com' }
+
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 
 
@@ -130,6 +135,10 @@ repositories {
 }
 
 dependencies {
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-77:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-77")
+
+
 
 
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.37')

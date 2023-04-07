@@ -1,6 +1,7 @@
 package net.jacob.bygonecreatures.block;
 
 import net.jacob.bygonecreatures.BygoneCreatures;
+import net.jacob.bygonecreatures.block.custom.AnimatedBlock;
 import net.jacob.bygonecreatures.block.custom.kingsago;
 import net.jacob.bygonecreatures.block.custom.sleekstonepebble;
 import net.jacob.bygonecreatures.item.ModCreativeModeTab;
@@ -54,6 +55,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> DESERTSCRUB = registerBlock("desertscrub",
             () -> new DeadBushBlock(
                     BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)), ModCreativeModeTab.BygoneCreatures_TAB);
+
+
+    public static final RegistryObject<Block> ANIMATED_BLOCK = registerBlock("biterblock",
+            () -> new AnimatedBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()), ModCreativeModeTab.BygoneCreatures_TAB);
 
 
     //.requiresCorrectToolForDrops()  USE THIS!!!

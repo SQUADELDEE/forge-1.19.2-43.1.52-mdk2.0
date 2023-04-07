@@ -1,0 +1,17 @@
+{
+  "name": "Breather Bag",
+  "icon": "bygonecreatures:breatherbag",
+  "category": "bygonecreatures:armor",
+  "pages": [
+    {
+
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:breatherbag"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Gives water breathing. Crafted with two glyptodon scutes and protoceratops shed, with an embryo core in the center. To obtain embryo cores, see the Ichthyosaur section under the mobs category"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package net.jacob.bygonecreatures.event;
 
 import net.jacob.bygonecreatures.BygoneCreatures;
+import net.jacob.bygonecreatures.block.client.AnimatedBlockRenderer;
+import net.jacob.bygonecreatures.block.entity.ModBlockEntities;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
 import net.jacob.bygonecreatures.entity.client.*;
 import net.jacob.bygonecreatures.entity.client.armor.BreatherSetRenderer;
@@ -43,6 +45,9 @@ public class ModBusEvents {
             event.put(ModEntityTypes.ICHTHYOSAUR.get(), ItchyEntity.setAttributes().build());
             event.put(ModEntityTypes.KEMKEM.get(), KemKemEntity.setAttributes().build());
             event.put(ModEntityTypes.PROTOCERATOPS.get(), ProtoceratopsEntity.setAttributes().build());
+            event.put(ModEntityTypes.AUK.get(), AukEntity.createAttributes().build());
+            event.put(ModEntityTypes.MOUSE.get(), MouseEntity.setAttributes().build());
+            event.put(ModEntityTypes.ANOMALOCARIS.get(), AnomaloEntity.setAttributes().build());
         }
 
         @SubscribeEvent
@@ -57,6 +62,9 @@ public class ModBusEvents {
             event.registerEntityRenderer(ModEntityTypes.ICHTHYOSAUR.get(), ItchyRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.KEMKEM.get(), KemKemRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.PROTOCERATOPS.get(), ProtoceratopsRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.AUK.get(), AukRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.MOUSE.get(), MouseRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.ANOMALOCARIS.get(), AnomalocarisRenderer::new);
         }
 
 
@@ -64,6 +72,11 @@ public class ModBusEvents {
         public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event) {
             GeoArmorRenderer.registerArmorRenderer(DragonflyBootsItem.class, new DragonflyBootsRenderer());
             GeoArmorRenderer.registerArmorRenderer(BreatherSet.class, new BreatherSetRenderer());
+        }
+
+        @SubscribeEvent
+        public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.ANIMATED_BLOCK_ENTITY.get(), AnimatedBlockRenderer::new);
         }
 
 

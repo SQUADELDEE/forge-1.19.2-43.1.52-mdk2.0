@@ -40,9 +40,9 @@ public class DodoRenderer extends GeoEntityRenderer<DodoEntity> {
                                     ResourceLocation textureLocation) {
 
         if(animatable.isBaby()) {
-            stack.scale(0.4F, 0.4F, 0.4F);
+            stack.scale(0.5F, 0.5F, 0.5F);
         } else {
-            stack.scale(0.8F, 0.8F, 0.8F);
+            stack.scale(1F, 1F, 1F);
         }
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }

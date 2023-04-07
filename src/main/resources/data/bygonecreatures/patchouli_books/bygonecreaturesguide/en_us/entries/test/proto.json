@@ -1,0 +1,19 @@
+{
+  "name": "Protoceratops",
+  "icon": "bygonecreatures:protospawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/proto.png"],
+      "title": "Protoceratops"
+
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:saddle",
+      "text": "These small herbivores wander the desert.They are bred with carrots and shed their skin which can be used to make saddles and also drop their meat."
+    }
+  ]
+}

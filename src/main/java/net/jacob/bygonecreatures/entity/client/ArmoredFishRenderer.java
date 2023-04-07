@@ -55,8 +55,8 @@ public class ArmoredFishRenderer extends GeoEntityRenderer<ArmoredFishEntity> {
     @Override
     protected void applyRotations(ArmoredFishEntity endWhale, PoseStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {
         super.applyRotations(endWhale, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
-        float f = 4.3F * Mth.sin(0.6F * ageInTicks);
-        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(f));
+//        float f = 4.3F * Mth.sin(0.6F * ageInTicks);
+//        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(f));
         if (!endWhale.isInWater()) {
             matrixStackIn.translate(0.1F, 0.1F, -0.1F);
             matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(90.0F));

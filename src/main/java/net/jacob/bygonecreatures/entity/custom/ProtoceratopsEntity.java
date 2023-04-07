@@ -1,5 +1,6 @@
 package net.jacob.bygonecreatures.entity.custom;
 
+import net.jacob.bygonecreatures.block.ModBlocks;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -26,6 +28,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -39,6 +45,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import java.util.EnumSet;
+import java.util.function.Predicate;
 
 import static net.jacob.bygonecreatures.item.ModItems.*;
 
@@ -97,6 +104,8 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+//        this.goalSelector.addGoal(4, new ProtoceratopsEntity.ChewScrubGoal(this));
+
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -139,6 +148,9 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
         }
 
     }
+
+
+
 
 
 
@@ -242,6 +254,71 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
             ProtoceratopsEntity.this.getMoveControl().setWantedPosition(ProtoceratopsEntity.this.getX(), ProtoceratopsEntity.this.getY(), ProtoceratopsEntity.this.getZ(), 0.0D);
         }
     }
+
+    public class ChewScrubGoal extends Goal {
+        private static final int EAT_ANIMATION_TICKS = 40;
+        private static final Predicate<BlockState> IS_TALL_GRASS = BlockStatePredicate.forBlock(ModBlocks.DESERTSCRUB.get());
+        private final Mob mob;
+        private final Level level;
+        private int eatAnimationTick;
+
+
+
+        public ChewScrubGoal(ProtoceratopsEntity auk) {
+            this.mob = auk;
+            this.level = auk.level;
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
+        }
+
+        public boolean canUse() {
+            if (this.mob.getRandom().nextInt(this.mob.isBaby() ? 5 : 5) != 0) {
+                return false;
+            } else {
+                BlockPos blockpos = this.mob.blockPosition();
+                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
+                    return true;
+                } else {
+                    return this.level.getBlockState(blockpos.below()).is(Blocks.SCAFFOLDING);
+                }
+            }
+        }
+
+        public void start() {
+            this.eatAnimationTick = this.adjustedTickDelay(5);
+            this.level.broadcastEntityEvent(this.mob, (byte)10);
+            this.mob.getNavigation().stop();
+        }
+
+        public void stop() {
+            this.eatAnimationTick = 0;
+        }
+
+        public boolean canContinueToUse() {
+            return this.eatAnimationTick > 0;
+        }
+
+        public int getEatAnimationTick() {
+            return this.eatAnimationTick;
+        }
+
+        public void tick() {
+            this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
+            if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
+                BlockPos blockpos = this.mob.blockPosition();
+                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
+                    if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
+                        this.level.destroyBlock(blockpos, false);
+                        this.level.setBlock(blockpos, ModBlocks.DESERTSCRUB.get().defaultBlockState(), 2);
+                        mob.spawnAtLocation(Items.STICK);
+                    }
+
+                    this.mob.ate();
+                }
+
+            }
+        }
+    }
+
 
 
 

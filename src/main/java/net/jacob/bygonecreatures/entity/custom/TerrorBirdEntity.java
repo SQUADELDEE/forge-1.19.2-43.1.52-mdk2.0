@@ -97,7 +97,7 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
         this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.addGoal(2, new PanicGoal(this, 1.25D));
+
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -108,7 +108,7 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
 //        this.targetSelector.addGoal(5, new NonTameRandomTargetGoal<>(this, Animal.class, false, PREY_SELECTOR));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         //this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, DodoEntity.class, false));
-        this.targetSelector.addGoal(6, (new HurtByTargetGoal(this)).setAlertOthers());
+        this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setAlertOthers());
     }
 
     public boolean isControlledByLocalInstance() {
@@ -116,7 +116,9 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
     }
 
     public boolean doHurtTarget(Entity entity) {
-        this.getOwner().addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200));
+        if(this.isTame()){
+            this.getOwner().addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200));
+        }
 //        ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 0), this);
         startAttackAnim();
         return super.doHurtTarget(entity);
@@ -317,9 +319,9 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
         }
 
 
-        if (itemstack.getItem() == itemForTaming) {
-            return InteractionResult.PASS;
-        }
+//        if (itemstack.getItem() == itemForTaming) {
+//            return InteractionResult.PASS;
+//        }
 
         return super.mobInteract(player, hand);
     }

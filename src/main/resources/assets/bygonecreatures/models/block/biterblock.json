@@ -1,0 +1,79 @@
+{
+
+  "parent": "builtin/entity",
+  "textures": {
+    "0": "bygonecreatures:block/bitertexture",
+    "particle": "bygonecreatures:block/filthy"
+
+  },
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "scale": [
+        0.53,
+        0.52,
+        0.52
+      ]
+    },
+    "thirdperson_lefthand": {
+      "scale": [
+        0.52,
+        0.51,
+        0.5
+      ]
+    },
+    "firstperson_righthand": {
+      "scale": [
+        0.33,
+        0.32,
+        0.34
+      ]
+    },
+    "firstperson_lefthand": {
+      "scale": [
+        0.34,
+        0.33,
+        0.32
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.66,
+        0.64,
+        0.63
+      ]
+    },
+    "gui": {
+      "rotation": [
+        36.63,
+        -47.58,
+        2.13
+      ],
+      "translation": [
+        0,
+        -4.5,
+        0
+      ],
+      "scale": [
+        0.63,
+        0.63,
+        0.63
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -7,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.74,
+        0.74
+      ]
+    }
+  }
+}

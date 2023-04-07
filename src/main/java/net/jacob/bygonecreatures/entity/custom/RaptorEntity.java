@@ -163,8 +163,13 @@ public class RaptorEntity extends TamableAnimal implements IAnimatable {
 
 
     public <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving() && !(this.getAttackTick() > 0)) {
+        if (event.isMoving() && !(this.getAttackTick() > 0) && !(this.isSitting()) && !(this.isTame())) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", ILoopType.EDefaultLoopTypes.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+        if (event.isMoving() && !(this.getAttackTick() > 0) && this.isTame() && !(this.isSitting())) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("run", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
@@ -275,9 +280,9 @@ public class RaptorEntity extends TamableAnimal implements IAnimatable {
 
 
 
-        if (itemstack.getItem() == itemForTaming) {
-            return InteractionResult.PASS;
-        }
+//        if (itemstack.getItem() == itemForTaming) {
+//            return InteractionResult.PASS;
+//        }
 
         return super.mobInteract(player, hand);
     }
