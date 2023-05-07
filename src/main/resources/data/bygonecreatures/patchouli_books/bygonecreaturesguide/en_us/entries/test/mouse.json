@@ -18,7 +18,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "bygonecreatures:trapblock",
-      "text": "Digging behavior can be toggled on and off with a stick. They can also be made to sit/stand by shift clicking without a stick in the main hand. They can also be healed with wheat seeds"
+      "text": "Digging behavior can be toggled on and off with a stick. They can also be made to sit/stand by shift clicking without a stick in the main hand. They can also be healed with melon seeds and bred with wheat seeds."
 
 
     }

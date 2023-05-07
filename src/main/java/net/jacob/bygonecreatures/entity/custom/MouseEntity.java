@@ -325,7 +325,7 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
             return super.mobInteract(player, hand);
         }
 
-        if (isTame() && itemstack.is(Items.MUTTON)) {
+        if (isTame() && itemstack.is(Items.MELON_SEEDS)) {
             if (this.getHealth() < this.getMaxHealth()) {
                 this.usePlayerItem(player, hand, itemstack);
                 this.gameEvent(GameEvent.EAT);
