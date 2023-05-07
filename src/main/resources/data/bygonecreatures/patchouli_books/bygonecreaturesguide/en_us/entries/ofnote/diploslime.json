@@ -1,0 +1,14 @@
+{
+  "name": "Diplocaulus Slimeball",
+  "icon": "bygonecreatures:diploslime",
+  "category": "bygonecreatures:ofnote",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "bygonecreatures:diploslime",
+      "text": "Feeding diplocaulus grubs will encourage them to shed 2 diplocaulus slimeballs, a throwable item that will significantly slow down mobs for a short time period. This item may also be used in some recipes such as the fins and biter block recipe."
+
+
+    }
+  ]
+}

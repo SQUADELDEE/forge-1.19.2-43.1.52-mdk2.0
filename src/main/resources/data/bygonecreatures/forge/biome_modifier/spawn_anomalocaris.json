@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:warm_ocean", "minecraft:cold_ocean", "minecraft:deep_cold_ocean", "minecraft:ocean", "minecraft:deep_ocean"
+  ],
+  "spawners": {
+    "type": "bygonecreatures:anomalocaris",
+    "weight": 50,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

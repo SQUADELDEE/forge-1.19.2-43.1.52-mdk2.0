@@ -7,28 +7,21 @@ import net.jacob.bygonecreatures.entity.ModEntityTypes;
 import net.jacob.bygonecreatures.entity.client.*;
 import net.jacob.bygonecreatures.entity.client.armor.BreatherSetRenderer;
 import net.jacob.bygonecreatures.entity.client.armor.DragonflyBootsRenderer;
+import net.jacob.bygonecreatures.entity.client.armor.FinsRenderer;
 import net.jacob.bygonecreatures.entity.custom.*;
-import net.jacob.bygonecreatures.item.custom.BreatherSet;
-import net.jacob.bygonecreatures.item.custom.DragonflyBootsItem;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.animal.Cat;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.player.Player;
+import net.jacob.bygonecreatures.item.client.custom.BreatherSet;
+import net.jacob.bygonecreatures.item.client.custom.DragonflyBootsItem;
+import net.jacob.bygonecreatures.item.client.custom.FinSet;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import org.apache.logging.log4j.LogManager;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
-import java.util.logging.Logger;
-
 public class ModBusEvents {
+
+
 
     @Mod.EventBusSubscriber(modid = BygoneCreatures.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
@@ -46,6 +39,7 @@ public class ModBusEvents {
             event.put(ModEntityTypes.KEMKEM.get(), KemKemEntity.setAttributes().build());
             event.put(ModEntityTypes.PROTOCERATOPS.get(), ProtoceratopsEntity.setAttributes().build());
             event.put(ModEntityTypes.AUK.get(), AukEntity.createAttributes().build());
+            event.put(ModEntityTypes.DIPLOCAULUS.get(), DiplocaulusEntity.createAttributes().build());
             event.put(ModEntityTypes.MOUSE.get(), MouseEntity.setAttributes().build());
             event.put(ModEntityTypes.ANOMALOCARIS.get(), AnomaloEntity.setAttributes().build());
         }
@@ -63,6 +57,7 @@ public class ModBusEvents {
             event.registerEntityRenderer(ModEntityTypes.KEMKEM.get(), KemKemRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.PROTOCERATOPS.get(), ProtoceratopsRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.AUK.get(), AukRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.DIPLOCAULUS.get(), DiploRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.MOUSE.get(), MouseRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.ANOMALOCARIS.get(), AnomalocarisRenderer::new);
         }
@@ -72,12 +67,16 @@ public class ModBusEvents {
         public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event) {
             GeoArmorRenderer.registerArmorRenderer(DragonflyBootsItem.class, new DragonflyBootsRenderer());
             GeoArmorRenderer.registerArmorRenderer(BreatherSet.class, new BreatherSetRenderer());
+            GeoArmorRenderer.registerArmorRenderer(FinSet.class, new FinsRenderer());
         }
 
         @SubscribeEvent
         public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.ANIMATED_BLOCK_ENTITY.get(), AnimatedBlockRenderer::new);
         }
+
+
+
 
 
 

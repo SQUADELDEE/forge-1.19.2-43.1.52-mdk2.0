@@ -1,7 +1,6 @@
 package net.jacob.bygonecreatures.entity.client.armor;
 
-import net.jacob.bygonecreatures.item.custom.BreatherSet;
-import net.jacob.bygonecreatures.item.custom.DragonflyBootsItem;
+import net.jacob.bygonecreatures.item.client.custom.BreatherSet;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class BreatherSetRenderer extends GeoArmorRenderer<BreatherSet> {

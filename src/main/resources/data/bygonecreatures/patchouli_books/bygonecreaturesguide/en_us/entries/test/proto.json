@@ -13,7 +13,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "bygonecreatures:saddle",
-      "text": "These small herbivores wander the desert.They are bred with carrots and shed their skin which can be used to make saddles and also drop their meat."
+      "text": "These small herbivores wander the desert.They are bred with carrots and shed their skin which can be used to make saddles, and also drop their meat. Finally, chewing desert scrub will increase their rate of growth. Place them in a pen with desert scrub for fast growing babies."
     }
   ]
 }

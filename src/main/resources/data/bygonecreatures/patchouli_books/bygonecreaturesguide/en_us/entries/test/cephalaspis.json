@@ -12,7 +12,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "A fish found swimming commonly in rivers. Currently has no use other than to be bucketed for decoration."
+      "text": "A fish found swimming commonly in rivers. When killed it drops its skull, which can be used in the biter block recipe. It can also be bucketed."
     }
   ]
 }

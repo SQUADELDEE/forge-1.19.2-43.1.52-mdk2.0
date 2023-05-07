@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:trapbug"
+    },
+
+    "?": {
+      "item": "bygonecreatures:diploslime"
+    },
+
+    "&": {
+      "item": "minecraft:cobblestone"
+    },
+
+    "!": {
+      "item": "bygonecreatures:cephaskull"
+    }
+  },
+  "pattern": [
+    "###",
+    "???",
+    "&!&"
+  ],
+  "result": {
+    "count": 3,
+    "item": "bygonecreatures:biterblock"
+  }
+}

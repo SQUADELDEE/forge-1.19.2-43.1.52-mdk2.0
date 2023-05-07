@@ -2,9 +2,9 @@ package net.jacob.bygonecreatures.item;
 
 
 import net.jacob.bygonecreatures.BygoneCreatures;
-import net.jacob.bygonecreatures.block.ModBlocks;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
-import net.jacob.bygonecreatures.item.custom.*;
+import net.jacob.bygonecreatures.item.client.custom.*;
+import net.jacob.bygonecreatures.item.client.custom.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
@@ -21,6 +21,9 @@ public class ModItems {
 //    public static final RegistryObject<Item> ANIMATED_BLOCK_ITEM = ITEMS.register("biterblock_item",
 //            () -> new AnimatedBlockItem(ModBlocks.ANIMATED_BLOCK.get(),
 //                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+
+
 
     public static final RegistryObject<Item> DUNG = ITEMS.register("dung",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
@@ -56,6 +59,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
     public static final RegistryObject<Item> PROTOSHED = ITEMS.register("protoshed",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> ANOFIN = ITEMS.register("anofin",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> CEPHASKULL = ITEMS.register("cephaskull",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
     public static final RegistryObject<Item> ITYPESKULL = ITEMS.register("itypeskull",
@@ -100,6 +109,11 @@ public class ModItems {
     public static final RegistryObject<Item>  BREATHERBAG = ITEMS.register("breatherbag",
             () -> new BreatherSet(ModArmorMaterials.BREATHER, EquipmentSlot.CHEST,  new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
+    public static final RegistryObject<Item>  FLIPPERS = ITEMS.register("flippers",
+            () -> new FinSet(ModArmorMaterials.FIN, EquipmentSlot.FEET,  new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+
+
 
     public static final RegistryObject<Item> ARMOREDFISHBUCKET = ITEMS.register("armoredfishbucket", () -> new ItemModFishBucket(ModEntityTypes.ARMOREDFISH, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
     public static final RegistryObject<Item> CEPHABUCKET = ITEMS.register("cephabucket", () -> new ItemModFishBucket(ModEntityTypes.CEPHALASPIS, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
@@ -107,6 +121,9 @@ public class ModItems {
     public static final RegistryObject<Item> KEMBUCKET = ITEMS.register("kemkembucket", () -> new ItemModFishBucket(ModEntityTypes.KEMKEM, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
     public static final RegistryObject<Item> ITCHBUCKET = ITEMS.register("itchbucket", () -> new ItemModFishBucket(ModEntityTypes.ICHTHYOSAUR, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> DIPLOBUCKET = ITEMS.register("diplobucket", () -> new ItemModFishBucket(ModEntityTypes.DIPLOCAULUS, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+    public static final RegistryObject<Item> ANOMALOBUCKET = ITEMS.register("anomalobucket", () -> new ItemModFishBucket(ModEntityTypes.ANOMALOCARIS, Fluids.WATER, new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
     public static final RegistryObject<Item> DODOSPAWNEGG = ITEMS.register("dodospawnegg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DODO,0x744700, 0xeeeeee,
@@ -149,6 +166,12 @@ public class ModItems {
     public static final RegistryObject<Item> ANOMALOCARISSPAWNEGG = ITEMS.register("anomalocarisspawnegg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ANOMALOCARIS,0xf54f4f, 0x744700,
                     new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+    public static final RegistryObject<Item> DIPLOSPAWNEGG = ITEMS.register("diplospawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DIPLOCAULUS,0x3d85c6, 0xffd700,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+
+    public static final RegistryObject<Item> DIPLOSLIME = ITEMS.register("diploslime", () -> new DiploSlimyThrow(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
 
 

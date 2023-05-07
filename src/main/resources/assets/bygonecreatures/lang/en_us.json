@@ -50,6 +50,7 @@
   "item.bygonecreatures.gildedprotosteak": "Gilded Proto Steak",
   "item.bygonecreatures.itypeskull": "Ichthy Skull",
   "entity.bygonecreatures.glyptodon": "Glyptodon",
+  "item.bygonecreatures.anomalobucket": "Bucket of Anomalocaris",
   "entity.bygonecreatures.terrorbird": "Terror Bird",
   "entity.bygonecreatures.dodo": "Dodo",
   "entity.bygonecreatures.armoredfish": "Armored Fish",
@@ -60,9 +61,16 @@
   "entity.bygonecreatures.mouse": "P. Papillon",
   "entity.bygonecreatures.anomalocaris": "Anomalocaris",
   "entity.bygonecreatures.protoceratops": "Protoceratops",
+  "entity.bygonecreatures.diplocaulus": "Diplocaulus",
   "item.bygonecreatures.aukspawnegg": "Great Auk Spawn Egg",
   "item.bygonecreatures.mousespawnegg": "P. Papillon Spawn Egg",
   "item.bygonecreatures.anomalocarisspawnegg": "Anomalocaris Spawn Egg",
+  "item.bygonecreatures.diplospawnegg": "Diplocaulus Spawn Egg",
+  "item.bygonecreatures.cephaskull": "Cephalaspis Skull",
+  "item.bygonecreatures.anofin": "Anomalocaris Fin Chipping",
+  "item.bygonecreatures.diploslime": "Diplocaulus Slimeball",
+  "item.bygonecreatures.flippers": "Flippers",
+  "item.bygonecreatures.diplobucket": "Bucket of Diplocaulus",
 
 
 

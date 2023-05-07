@@ -1,0 +1,26 @@
+{
+  "name": "P. Papillon",
+  "icon": "bygonecreatures:mousespawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/ms.png"],
+      "title": "P. Papillion"
+
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "bygonecreatures:trapbug",
+      "text": "This small marsupial can be found rarely in forest biomes, wandering around. They can be tamed with 10 melon seeds but will not fight with you. Instead, they will dig for items at an interval, yielding either grubs or trapbugs. Grubs are used to feed diplocaulus, and trapbugs in this recipe: "
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:trapblock",
+      "text": "Digging behavior can be toggled on and off with a stick. They can also be made to sit/stand by shift clicking without a stick in the main hand. They can also be healed with wheat seeds"
+
+
+    }
+  ]
+}

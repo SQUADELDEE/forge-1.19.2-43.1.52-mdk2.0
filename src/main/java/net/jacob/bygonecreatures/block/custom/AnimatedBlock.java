@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -23,7 +24,7 @@ public class AnimatedBlock extends BaseEntityBlock {
 
 
     public void stepOn(Level level, BlockPos pos, BlockState blockState, Entity entity) {
-        if (entity instanceof LivingEntity && !entity.isSteppingCarefully() && !(entity instanceof Player) && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
+        if (entity instanceof LivingEntity && !entity.isSteppingCarefully() && !(entity instanceof Player) && !(entity instanceof Villager)&& !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
             entity.hurt(DamageSource.HOT_FLOOR, 2.5F);
             entity.makeStuckInBlock(blockState, new Vec3(0.25D, (double)0.05F, 0.25D));
         }

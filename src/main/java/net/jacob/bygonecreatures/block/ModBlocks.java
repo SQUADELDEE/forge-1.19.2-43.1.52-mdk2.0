@@ -7,7 +7,6 @@ import net.jacob.bygonecreatures.block.custom.sleekstonepebble;
 import net.jacob.bygonecreatures.item.ModCreativeModeTab;
 import net.jacob.bygonecreatures.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;

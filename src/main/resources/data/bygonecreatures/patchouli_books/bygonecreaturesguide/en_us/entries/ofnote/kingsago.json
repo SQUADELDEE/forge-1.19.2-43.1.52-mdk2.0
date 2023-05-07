@@ -1,0 +1,14 @@
+{
+  "name": "King Sago",
+  "icon": "bygonecreatures:kingsago",
+  "category": "bygonecreatures:ofnote",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "bygonecreatures:kingsago",
+      "text": "Generates in deserts and can only be placed on sand. Can be collected for decoration."
+
+
+    }
+  ]
+}

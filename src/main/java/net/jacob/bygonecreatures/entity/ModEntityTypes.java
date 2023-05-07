@@ -2,6 +2,7 @@ package net.jacob.bygonecreatures.entity;
 
 import net.jacob.bygonecreatures.BygoneCreatures;
 import net.jacob.bygonecreatures.entity.custom.*;
+import net.jacob.bygonecreatures.entity.custom.DiploSlimeItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -9,8 +10,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import static com.ibm.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -80,6 +79,13 @@ public class ModEntityTypes {
                             .sized(0.8f, 1.2f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "auk").toString()));
 
+
+    public static final RegistryObject<EntityType<DiplocaulusEntity>> DIPLOCAULUS =
+            ENTITY_TYPES.register("diplocaulus",
+                    () -> EntityType.Builder.of(DiplocaulusEntity::new, MobCategory.CREATURE)
+                            .sized(0.8f, 0.4f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "diplocaulus").toString()));
+
     public static final RegistryObject<EntityType<MouseEntity>> MOUSE =
             ENTITY_TYPES.register("mouse",
                     () -> EntityType.Builder.of(MouseEntity::new, MobCategory.CREATURE)
@@ -92,6 +98,9 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(AnomaloEntity::new, MobCategory.WATER_CREATURE)
                             .sized(0.8f, 0.6f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "anomalocaris").toString()));
+
+
+    public static final RegistryObject<EntityType<DiploSlimeItem>> DIPLOSLIME = ENTITY_TYPES.register("diploslime", () -> EntityType.Builder.<DiploSlimeItem>of(DiploSlimeItem::new, MobCategory.MISC).sized(0.25F, 0.25F).build("diploslime"));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

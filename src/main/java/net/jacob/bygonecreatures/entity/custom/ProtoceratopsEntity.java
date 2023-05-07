@@ -28,7 +28,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
@@ -104,7 +103,7 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-//        this.goalSelector.addGoal(4, new ProtoceratopsEntity.ChewScrubGoal(this));
+        this.goalSelector.addGoal(4, new ProtoceratopsEntity.ChewScrubGoal(this));
 
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
@@ -255,6 +254,14 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
         }
     }
 
+    public void ate() {
+        super.ate();
+        if (this.isBaby()) {
+            this.ageUp(60);
+        }
+
+    }
+
     public class ChewScrubGoal extends Goal {
         private static final int EAT_ANIMATION_TICKS = 40;
         private static final Predicate<BlockState> IS_TALL_GRASS = BlockStatePredicate.forBlock(ModBlocks.DESERTSCRUB.get());
@@ -270,8 +277,11 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
             this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
         }
 
+
+
+
         public boolean canUse() {
-            if (this.mob.getRandom().nextInt(this.mob.isBaby() ? 5 : 5) != 0) {
+            if (this.mob.getRandom().nextInt(this.mob.isBaby() ? 100 : 100) != 0) {
                 return false;
             } else {
                 BlockPos blockpos = this.mob.blockPosition();
@@ -306,10 +316,13 @@ public class ProtoceratopsEntity extends Animal implements IAnimatable {
             if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
                 BlockPos blockpos = this.mob.blockPosition();
                 if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
+
                     if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
                         this.level.destroyBlock(blockpos, false);
+
                         this.level.setBlock(blockpos, ModBlocks.DESERTSCRUB.get().defaultBlockState(), 2);
-                        mob.spawnAtLocation(Items.STICK);
+                        ate();
+//                        mob.spawnAtLocation(Items.STICK);
                     }
 
                     this.mob.ate();

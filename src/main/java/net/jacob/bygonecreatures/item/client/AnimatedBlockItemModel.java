@@ -1,8 +1,7 @@
 package net.jacob.bygonecreatures.item.client;
 
 import net.jacob.bygonecreatures.BygoneCreatures;
-import net.jacob.bygonecreatures.block.entity.custom.AnimatedBlockEntity;
-import net.jacob.bygonecreatures.item.custom.AnimatedBlockItem;
+import net.jacob.bygonecreatures.item.client.custom.AnimatedBlockItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

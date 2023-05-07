@@ -1,4 +1,4 @@
-package net.jacob.bygonecreatures.item.custom;
+package net.jacob.bygonecreatures.item.client.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.jacob.bygonecreatures.item.ModArmorMaterials;

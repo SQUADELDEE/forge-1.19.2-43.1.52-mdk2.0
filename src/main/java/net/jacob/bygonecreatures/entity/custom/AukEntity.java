@@ -1,7 +1,6 @@
 package net.jacob.bygonecreatures.entity.custom;
 
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
-import net.jacob.bygonecreatures.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -30,7 +29,6 @@ import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
@@ -38,7 +36,6 @@ import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -46,10 +43,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.AmphibiousNodeEvaluator;
@@ -70,10 +64,6 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Predicate;
-
-import static net.jacob.bygonecreatures.item.ModItems.DODOEGG;
-import static net.jacob.bygonecreatures.item.ModItems.ITYPESKULL;
 
 public class AukEntity extends Animal implements IAnimatable {
 
@@ -235,82 +225,84 @@ public class AukEntity extends Animal implements IAnimatable {
         }
     }
 
-    public class ChiselBlockGoal extends Goal {
-        private static final int EAT_ANIMATION_TICKS = 40;
-        private static final Predicate<BlockState> IS_TALL_GRASS = BlockStatePredicate.forBlock(Blocks.GRASS);
-        private final Mob mob;
-        private final Level level;
-        private int eatAnimationTick;
+    //Useless goal right here
 
-
-
-        public ChiselBlockGoal(AukEntity auk) {
-            this.mob = auk;
-            this.level = auk.level;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
-        }
-
-        public boolean canUse() {
-            if (this.mob.getRandom().nextInt(this.mob.isBaby() ? 5 : 5) != 0) {
-                return false;
-            } else {
-                BlockPos blockpos = this.mob.blockPosition();
-                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
-                    return true;
-                } else {
-                    return this.level.getBlockState(blockpos.below()).is(Blocks.DIAMOND_ORE);
-                }
-            }
-        }
-
-        public void start() {
-            this.eatAnimationTick = this.adjustedTickDelay(5);
-            this.level.broadcastEntityEvent(this.mob, (byte)10);
-            this.mob.getNavigation().stop();
-        }
-
-        public void stop() {
-            this.eatAnimationTick = 0;
-        }
-
-        public boolean canContinueToUse() {
-            return this.eatAnimationTick > 0;
-        }
-
-        public int getEatAnimationTick() {
-            return this.eatAnimationTick;
-        }
-
-        public void tick() {
-            this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
-            if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
-                BlockPos blockpos = this.mob.blockPosition();
-                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
-                    if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
-                        this.level.destroyBlock(blockpos, false);
-                        this.level.setBlock(blockpos, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
-                        mob.spawnAtLocation(DODOEGG.get());
-                    }
-
-                    this.mob.ate();
-                } else {
-                    BlockPos blockpos1 = blockpos.below();
-                    if (this.level.getBlockState(blockpos1).is(Blocks.DIAMOND_ORE)) {
-                        if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
-                            this.level.levelEvent(2001, blockpos1, Block.getId(Blocks.DIAMOND_ORE.defaultBlockState()));
-                            this.level.setBlock(blockpos1, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
-                            mob.spawnAtLocation(DODOEGG.get());
-
-                        }
-
-                        this.mob.ate();
-
-                    }
-                }
-
-            }
-        }
-    }
+//    public class ChiselBlockGoal extends Goal {
+//        private static final int EAT_ANIMATION_TICKS = 40;
+//        private static final Predicate<BlockState> IS_TALL_GRASS = BlockStatePredicate.forBlock(Blocks.GRASS);
+//        private final Mob mob;
+//        private final Level level;
+//        private int eatAnimationTick;
+//
+//
+//
+//        public ChiselBlockGoal(AukEntity auk) {
+//            this.mob = auk;
+//            this.level = auk.level;
+//            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
+//        }
+//
+//        public boolean canUse() {
+//            if (this.mob.getRandom().nextInt(this.mob.isBaby() ? 5 : 5) != 0) {
+//                return false;
+//            } else {
+//                BlockPos blockpos = this.mob.blockPosition();
+//                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
+//                    return true;
+//                } else {
+//                    return this.level.getBlockState(blockpos.below()).is(Blocks.DIAMOND_ORE);
+//                }
+//            }
+//        }
+//
+//        public void start() {
+//            this.eatAnimationTick = this.adjustedTickDelay(5);
+//            this.level.broadcastEntityEvent(this.mob, (byte)10);
+//            this.mob.getNavigation().stop();
+//        }
+//
+//        public void stop() {
+//            this.eatAnimationTick = 0;
+//        }
+//
+//        public boolean canContinueToUse() {
+//            return this.eatAnimationTick > 0;
+//        }
+//
+//        public int getEatAnimationTick() {
+//            return this.eatAnimationTick;
+//        }
+//
+//        public void tick() {
+//            this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
+//            if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
+//                BlockPos blockpos = this.mob.blockPosition();
+//                if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
+//                    if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
+//                        this.level.destroyBlock(blockpos, false);
+//                        this.level.setBlock(blockpos, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
+//                        mob.spawnAtLocation(DODOEGG.get());
+//                    }
+//
+//                    this.mob.ate();
+//                } else {
+//                    BlockPos blockpos1 = blockpos.below();
+//                    if (this.level.getBlockState(blockpos1).is(Blocks.DIAMOND_ORE)) {
+//                        if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
+//                            this.level.levelEvent(2001, blockpos1, Block.getId(Blocks.DIAMOND_ORE.defaultBlockState()));
+//                            this.level.setBlock(blockpos1, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
+//                            mob.spawnAtLocation(DODOEGG.get());
+//
+//                        }
+//
+//                        this.mob.ate();
+//
+//                    }
+//                }
+//
+//            }
+//        }
+//    }
 
     @Override
     public ItemStack eat(Level level, ItemStack itemStack) {
@@ -323,14 +315,14 @@ public class AukEntity extends Animal implements IAnimatable {
                 this.gameEvent(GameEvent.ENTITY_PLACE);
 
             }
-            if (this.random.nextFloat() <= 0.07F) {
-                Vec3 mouthPos = this.calculateMouthPos();
-                ItemEntity pearl = new ItemEntity(level, mouthPos.x(), mouthPos.y(), mouthPos.z(), new ItemStack(Items.IRON_NUGGET));
-
-                pearl.setDeltaMovement(this.getRandom().nextGaussian() * 0.05D, this.getRandom().nextGaussian() * 0.05D + 0.2D, this.getRandom().nextGaussian() * 0.05D);
-                level.addFreshEntity(pearl);
-
-            }
+//            if (this.random.nextFloat() <= 0.07F) {
+//                Vec3 mouthPos = this.calculateMouthPos();
+//                ItemEntity pearl = new ItemEntity(level, mouthPos.x(), mouthPos.y(), mouthPos.z(), new ItemStack(Items.IRON_NUGGET));
+//
+//                pearl.setDeltaMovement(this.getRandom().nextGaussian() * 0.05D, this.getRandom().nextGaussian() * 0.05D + 0.2D, this.getRandom().nextGaussian() * 0.05D);
+//                level.addFreshEntity(pearl);
+//
+//            }
             level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.TURTLE_EGG_BREAK, SoundSource.NEUTRAL, 0.8F, 1.5F);
             level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ANVIL_USE, SoundSource.NEUTRAL, 0.8F, 1.5F);
             itemStack.shrink(1);
@@ -402,9 +394,11 @@ public class AukEntity extends Animal implements IAnimatable {
 
         if (!this.isEating() && this.isFood(itemstack) && !itemstack.is(Items.ANDESITE))  {
             this.setItemInHand(InteractionHand.MAIN_HAND, itemstack.split(1));
-            itemstack.shrink(1);
+//            itemstack.shrink(1);
             return super.mobInteract(player, hand);
-        } 
+        }
+
+
         return InteractionResult.PASS;
 
 
@@ -597,7 +591,7 @@ public class AukEntity extends Animal implements IAnimatable {
             super(AukEntity);
             this.auk = AukEntity;
         }
-
+// Main movement
         @Override
         public void tick() {
             if (this.auk.isInWater()) {

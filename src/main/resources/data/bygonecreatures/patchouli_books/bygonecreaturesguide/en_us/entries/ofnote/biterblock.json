@@ -1,0 +1,17 @@
+{
+  "name": "Biter Block Type 1",
+  "icon": "bygonecreatures:biterblock",
+  "category": "bygonecreatures:ofnote",
+  "pages": [
+    {
+
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:trapblock"
+
+    },
+    {
+      "type": "patchouli:text",
+      "text": "This block both slows and does damage to entities that step on it. It can be used as way to safeguard a base from mobs. It can also protect villages as it will ignore villagers."
+    }
+  ]
+}

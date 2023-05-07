@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bygonecreatures:anofin"
+    },
+
+    "?": {
+      "item": "bygonecreatures:diploslime"
+    },
+
+
+    "!": {
+      "item": "bygonecreatures:cephaskull"
+    }
+  },
+  "pattern": [
+    "# #",
+    "# #",
+    "?!?"
+  ],
+  "result": {
+    "item": "bygonecreatures:flippers"
+  }
+}

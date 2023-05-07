@@ -1,4 +1,4 @@
-package net.jacob.bygonecreatures.item.custom;
+package net.jacob.bygonecreatures.item.client.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.jacob.bygonecreatures.item.ModArmorMaterials;
@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -23,29 +24,24 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import java.util.Map;
 
-public class DragonflyBootsItem extends GeoArmorItem implements IAnimatable {
-
-
+public class FinSet extends GeoArmorItem implements IAnimatable {
 
     private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.DRAGONFLY, new MobEffectInstance(MobEffects.JUMP, 200, 2)).build();
-
-    private static final Map<ArmorMaterial, MobEffectInstance> SECONDARY =
-            (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.DRAGONFLY, new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 2)).build();
+                    .put(ModArmorMaterials.FIN, new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 200, 2)).build();
 
 
 
-    public DragonflyBootsItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
+
+    public FinSet(ArmorMaterial material, EquipmentSlot slot, Item.Properties settings) {
         super(material, slot, settings);
     }
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<DragonflyBootsItem>(this, "controller",
+        data.addAnimationController(new AnimationController<FinSet>(this, "controller",
                 20, this::predicate));
     }
 
@@ -80,14 +76,6 @@ public class DragonflyBootsItem extends GeoArmorItem implements IAnimatable {
             }
         }
 
-        for (Map.Entry<ArmorMaterial, MobEffectInstance> entry : SECONDARY.entrySet()) {
-            ArmorMaterial mapArmorMaterial = entry.getKey();
-            MobEffectInstance mapStatusEffect = entry.getValue();
-
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
-            }
-        }
     }
 
     private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
@@ -136,6 +124,5 @@ public class DragonflyBootsItem extends GeoArmorItem implements IAnimatable {
 
         return boots.getMaterial() == material;
     }
-
 
 }

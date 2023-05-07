@@ -31,6 +31,13 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     }),
 
+
+    FIN("fin", 15, new int[]{2, 5, 5, 2}, 9, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
+        return Ingredient.of(ModItems.ANOFIN.get());
+
+
+    }),
+
     GOLD("gold", 7, new int[]{1, 3, 5, 2}, 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GOLD_INGOT);
     }),

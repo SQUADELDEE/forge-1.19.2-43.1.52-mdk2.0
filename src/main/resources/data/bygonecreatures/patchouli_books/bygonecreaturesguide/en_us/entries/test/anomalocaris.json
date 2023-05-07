@@ -1,0 +1,19 @@
+{
+  "name": "Anomalocaris",
+  "icon": "bygonecreatures:anomalocarisspawnegg",
+  "category": "bygonecreatures:mobs",
+  "pages": [
+    {
+
+      "type": "patchouli:image",
+      "images": ["bygonecreatures:textures/icon/as.png"],
+      "title": "Anomalocaris"
+
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "bygonecreatures:flippers",
+      "text": "An invertebrate found swimming in most oceans including cold and deep ones as well as warm ones. Drops its fin shards which can be crafted into flippers for increased swim speed. Can be bucketed."
+    }
+  ]
+}

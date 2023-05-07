@@ -3,8 +3,13 @@ package net.jacob.bygonecreatures.item;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import org.lwjgl.glfw.GLFW;
+
+import java.util.function.BooleanSupplier;
 
 public class ModFoods {
+
+
     public static final FoodProperties DODOMEAT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
     public static final FoodProperties GLYPTODONMEAT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.4F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
     public static final FoodProperties COOKEDDODOMEAT = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.4F).meat().build();

@@ -1,0 +1,14 @@
+{
+  "name": "Desert Scrub",
+  "icon": "bygonecreatures:desertscrub",
+  "category": "bygonecreatures:ofnote",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "bygonecreatures:desertscrub",
+      "text": "Generates in deserts and can only be placed on sand. Can be collected for decoration, as well as to fuel the growth of young protoceratops."
+
+
+    }
+  ]
+}

@@ -177,7 +177,7 @@ public class AnomaloEntity extends AbstractFish implements IAnimatable {
 
     @Override
     public ItemStack getBucketItemStack() {
-        ItemStack stack = new ItemStack(ModItems.ARMOREDFISHBUCKET.get());
-        return null;
+        ItemStack stack = new ItemStack(ModItems.ANOMALOBUCKET.get());
+        return stack;
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,12 +24,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Ocelot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -57,9 +52,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static net.jacob.bygonecreatures.item.ModItems.DODOMEAT;
-import static net.jacob.bygonecreatures.item.ModItems.DUNG;
-
 public class MouseEntity extends TamableAnimal implements IAnimatable {
     public float prevDigProgress;
     public float digProgress;
@@ -72,6 +64,9 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
     }
     private static final EntityDataAccessor<Integer> ATTACK_TICK = SynchedEntityData.defineId(MouseEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> DIGGING = SynchedEntityData.defineId(MouseEntity.class, EntityDataSerializers.BOOLEAN);
+
+    private static final EntityDataAccessor<Boolean> SEARCHING = SynchedEntityData.defineId(MouseEntity.class, EntityDataSerializers.BOOLEAN);
+
     public static final Predicate<LivingEntity> PREY_SELECTOR = (p_30437_) -> {
         EntityType<?> entitytype = p_30437_.getType();
         return entitytype == EntityType.CHICKEN || entitytype == EntityType.RABBIT || entitytype == EntityType.PIG;
@@ -111,7 +106,7 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
         super.aiStep();
 
 
-        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.geggTime <= 0 && this.isTame()) {
+        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.geggTime <= 0 && this.isTame() && this.isDigging()) {
             List<ItemStack> lootList = getItemStacks(this);
             this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 //            this.spawnAtLocation(DUNG.get());
@@ -204,9 +199,9 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
 
 
 
-        if (this.onGround && isDigging()) {
-            spawnGroundEffects();
-        }
+//        if (this.onGround && isDigging()) {
+//            spawnGroundEffects();
+//        }
         prevDigProgress = digProgress;
         boolean dig = isDigging() && isInWaterOrBubble();
         if (dig && digProgress < 5F) {
@@ -343,17 +338,29 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
         }
 
 
-        if (isTame() && itemstack.is(Items.STICK) && isSitting()) {
+        if (isTame() && itemstack.is(Items.STICK) && isDigging()) {
+            player.sendSystemMessage(Component.literal(player.getName().getString() + " Ordered P. Papillon to stop digging"));
+            setDigging(!isDigging());
 
-            return InteractionResult.PASS;
+            return InteractionResult.SUCCESS;
 
         }
 
 
-        if (!isTame() && item == Items.MUTTON) {
+        if (isTame() && itemstack.is(Items.STICK) && !isDigging()) {
+            player.sendSystemMessage(Component.literal(player.getName().getString() + " Ordered P. Papillon to dig"));
+            setDigging(!isDigging());
+
+            return InteractionResult.SUCCESS;
+
+        }
+
+
+        if (!isTame() && item == Items.MELON_SEEDS) {
             this.usePlayerItem(player, hand, itemstack);
             this.gameEvent(GameEvent.EAT);
             this.playSound(SoundEvents.STRIDER_EAT, this.getSoundVolume(), this.getVoicePitch());
+
             meatFeedings++;
             if (meatFeedings > 9) {
                 this.tame(player);
@@ -393,12 +400,15 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putBoolean("isSitting", this.isSitting());
+        tag.putBoolean("isSearching", this.isSearching());
+
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SITTING, false);
+        this.entityData.define(SEARCHING, false);
         this.getEntityData().define(ATTACK_TICK, 0);
         this.entityData.define(DIGGING, false);
     }
@@ -408,9 +418,18 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
         this.setOrderedToSit(sitting);
     }
 
+    public void setSearching(boolean sitting) {
+        this.entityData.set(SEARCHING, sitting);
+        this.setOrderedToSit(sitting);
+    }
+
+
     public boolean isSitting() {
         return this.entityData.get(SITTING);
     }
+
+
+    public boolean isSearching(){ return this.entityData.get(SEARCHING);}
 
     @Override
     public Team getTeam() {
@@ -423,7 +442,7 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.getItem() == DODOMEAT.get();
+       return pStack.getItem() == Items.WHEAT_SEEDS;
     }
 
 

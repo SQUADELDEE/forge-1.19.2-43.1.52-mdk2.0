@@ -1,9 +1,8 @@
-package net.jacob.bygonecreatures.item.custom;
+package net.jacob.bygonecreatures.item.client.custom;
 
 import net.jacob.bygonecreatures.item.client.AnimatedBlockItemRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib3.core.IAnimatable;

@@ -103,6 +103,8 @@ public class BygoneCreatures
 
         SpawnPlacements.register(ModEntityTypes.AUK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AukEntity::checkaukSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.DIPLOCAULUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
+
         LuggageNetworkHandler.init();
 
 
@@ -118,6 +120,13 @@ public class BygoneCreatures
                             SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                             Animal::checkAnimalSpawnRules);
 
+                    SpawnPlacements.register(ModEntityTypes.MOUSE.get(),
+                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                            Animal::checkAnimalSpawnRules);
+
+
+
+
 //                    SpawnPlacements.register(ModEntityTypes.DRAGONFLY.get(),
 //                            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 //                            DragonflyEntity::checkDragonflySpawnRules);
@@ -125,6 +134,11 @@ public class BygoneCreatures
                     SpawnPlacements.register(ModEntityTypes.CEPHALASPIS.get(),
                         SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                         AbstractFish::checkSurfaceWaterAnimalSpawnRules);
+
+
+            SpawnPlacements.register(ModEntityTypes.ANOMALOCARIS.get(),
+                    SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    AbstractFish::checkSurfaceWaterAnimalSpawnRules);
 
                     SpawnPlacements.register(ModEntityTypes.ARMOREDFISH.get(),
                             SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
