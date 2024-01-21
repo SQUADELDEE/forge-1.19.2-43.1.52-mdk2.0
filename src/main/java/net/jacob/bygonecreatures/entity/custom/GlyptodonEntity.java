@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -67,6 +68,8 @@ public class GlyptodonEntity extends Animal implements IAnimatable, ItemSteerabl
     private int fetchCooldown = 0;
     private boolean tryingToFetchItem;
     private boolean isInventoryOpen;
+
+
 
     @Override
     public void containerChanged(Container container) {
@@ -318,6 +321,21 @@ public class GlyptodonEntity extends Animal implements IAnimatable, ItemSteerabl
 
     public void setSleeping(boolean sleeping) {
         this.entityData.set(SLEEPING, sleeping);
+    }
+
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource src)
+    {
+        Entity srcEnt = src.getEntity();
+        if (srcEnt != null && (srcEnt == this || hasPassenger(srcEnt))) return true;
+
+        if ( src == DamageSource.CACTUS) // THICK SHELLED
+            return true;
+        if (src == DamageSource.ANVIL)
+            return true;
+
+        return super.isInvulnerableTo(src);
     }
 
 

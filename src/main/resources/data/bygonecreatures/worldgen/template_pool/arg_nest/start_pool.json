@@ -1,0 +1,29 @@
+{
+  "name": "tutorialmod:arg_nest/start_pool",
+
+
+  "fallback": "minecraft:empty",
+
+
+  "elements": [
+    {
+
+
+      "weight": 1,
+      "element": {
+
+
+        "location": "bygonecreatures:arg_nest",
+
+
+        "processors": "minecraft:empty",
+
+
+        "projection": "rigid",
+
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

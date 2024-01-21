@@ -23,13 +23,17 @@ public class GlyptodonRenderer extends GeoEntityRenderer<GlyptodonEntity> {
 
 
         if (instance.isSaddled()){
-            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/gsaddletexturet2.png");
+            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/chestedtexture.png");
 
         } else {
-            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/gtexture.png");
+            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/blanktext.png");
 
         }
     }
+
+
+
+
 
 
     @Override

@@ -265,6 +265,8 @@ public class MouseEntity extends TamableAnimal implements IAnimatable {
 
 
 
+
+
         if (this.isSitting()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("sit", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;

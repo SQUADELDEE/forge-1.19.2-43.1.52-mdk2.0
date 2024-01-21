@@ -19,6 +19,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -158,12 +162,12 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
 
     public <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving() && !(this.getAttackTick() > 0) && !(this.hasControllingPassenger())) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
         if (event.isMoving() && this.hasControllingPassenger() && !(this.getAttackTick() > 0)) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("running", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("run", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
@@ -173,7 +177,7 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
         }
 
         if (this.isSitting()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("sitting", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("sit", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
@@ -181,16 +185,35 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
         return PlayState.CONTINUE;
     }
 
-    private PlayState attackPredicate(AnimationEvent event) {
+    //prevents tamable entities from attacking other tamed ones. ALWAYS INCLUDE FOR MODDED TAMAMBLES
 
-        if(this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("bite", ILoopType.EDefaultLoopTypes.PLAY_ONCE));
-            this.swinging = false;
+    public boolean wantsToAttack(LivingEntity entity, LivingEntity livingentity) {
+        if (!(entity instanceof Creeper) && !(entity instanceof Ghast)) {
+            if (entity instanceof Wolf) {
+                Wolf wolf = (Wolf)entity;
+                return !wolf.isTame() || wolf.getOwner() != livingentity;
+            } else if (entity instanceof Player && livingentity instanceof Player && !((Player)livingentity).canHarmPlayer((Player)entity)) {
+                return false;
+            } else if (entity instanceof AbstractHorse && ((AbstractHorse)entity).isTamed()) {
+                return false;
+            } else {
+                return !(entity instanceof TamableAnimal) || !((TamableAnimal)entity).isTame();
+            }
+        } else {
+            return false;
         }
-
-        return PlayState.CONTINUE;
     }
+
+//    private PlayState attackPredicate(AnimationEvent event) {
+//
+//        if(this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+//            event.getController().markNeedsReload();
+//            event.getController().setAnimation(new AnimationBuilder().addAnimation("bite", ILoopType.EDefaultLoopTypes.PLAY_ONCE));
+//            this.swinging = false;
+//        }
+//
+//        return PlayState.CONTINUE;
+//    }
 
 
 
@@ -198,8 +221,8 @@ public class TerrorBirdEntity extends TamableAnimal implements IAnimatable {
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",
                 4, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
+//        data.addAnimationController(new AnimationController(this, "attackController",
+//                0, this::attackPredicate));
 
     }
 

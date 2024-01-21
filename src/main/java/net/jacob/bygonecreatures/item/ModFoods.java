@@ -21,4 +21,6 @@ public class ModFoods {
     public static final FoodProperties COOKEDGLYPTODONMEAT = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.6F).meat().build();
     public static final FoodProperties ARMOREDFISH = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).build();
     public static final FoodProperties COOKEDARMOREDFISH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).build();
+
+    public static final FoodProperties SMOLDERSTEAK = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.6F).effect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 0.3F).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300, 0), 1.0F).meat().build();
 }

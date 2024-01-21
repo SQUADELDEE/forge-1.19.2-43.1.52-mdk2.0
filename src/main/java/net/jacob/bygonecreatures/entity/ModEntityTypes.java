@@ -18,7 +18,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<DodoEntity>> DODO =
             ENTITY_TYPES.register("dodo",
                     () -> EntityType.Builder.of(DodoEntity::new, MobCategory.CREATURE)
-                            .sized(0.8f, 0.6f)
+                            .sized(0.8f, 1.2f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "dodo").toString()));
     public static final RegistryObject<EntityType<ArmoredFishEntity>> ARMOREDFISH =
             ENTITY_TYPES.register("armoredfish",
@@ -34,7 +34,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<TerrorBirdEntity>> TERRORBIRD =
             ENTITY_TYPES.register("terrorbird",
                     () -> EntityType.Builder.of(TerrorBirdEntity::new, MobCategory.CREATURE)
-                            .sized(2.0f, 2.7f)
+                            .sized(1.7f, 2.7f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "terrorbird").toString()));
 
     public static final RegistryObject<EntityType<GlyptodonEntity>> GLYPTODON =
@@ -98,6 +98,42 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(AnomaloEntity::new, MobCategory.WATER_CREATURE)
                             .sized(0.8f, 0.6f)
                             .build(new ResourceLocation(BygoneCreatures.MOD_ID, "anomalocaris").toString()));
+
+    public static final RegistryObject<EntityType<CurlyCoatEntity>> CURLYCOAT =
+            ENTITY_TYPES.register("curlycoat",
+                    () -> EntityType.Builder.of(CurlyCoatEntity::new, MobCategory.CREATURE)
+                            .sized(1.0f, 1.1f)
+                            .fireImmune()
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "curlycoat").toString()));
+
+
+    public static final RegistryObject<EntityType<ArgenEntity>> ARGEN =
+            ENTITY_TYPES.register("argentavis",
+                    () -> EntityType.Builder.of(ArgenEntity::new, MobCategory.CREATURE)
+                            .sized(1.7f, 2.7f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "argentavis").toString()));
+
+    public static final RegistryObject<EntityType<PteraEntity>> PTERA =
+            ENTITY_TYPES.register("ptera",
+                    () -> EntityType.Builder.of(PteraEntity::new, MobCategory.CREATURE)
+                            .sized(0.45f, 0.45f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "ptera").toString()));
+
+    public static final RegistryObject<EntityType<BearEntity>> BEAR =
+            ENTITY_TYPES.register("bear",
+                    () -> EntityType.Builder.of(BearEntity::new, MobCategory.CREATURE)
+                            .sized(1.7f, 2.3f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "bear").toString()));
+
+    public static final RegistryObject<EntityType<PeccaryEntity>> PECCARY =
+            ENTITY_TYPES.register("peccary",
+                    () -> EntityType.Builder.of(PeccaryEntity::new, MobCategory.CREATURE)
+                            .sized(0.8f, 1.2f)
+                            .build(new ResourceLocation(BygoneCreatures.MOD_ID, "peccary").toString()));
+
+
+
+
 
 
     public static final RegistryObject<EntityType<DiploSlimeItem>> DIPLOSLIME = ENTITY_TYPES.register("diploslime", () -> EntityType.Builder.<DiploSlimeItem>of(DiploSlimeItem::new, MobCategory.MISC).sized(0.25F, 0.25F).build("diploslime"));

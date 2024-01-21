@@ -6,8 +6,10 @@ import net.jacob.bygonecreatures.block.entity.ModBlockEntities;
 import net.jacob.bygonecreatures.entity.ModEntityTypes;
 import net.jacob.bygonecreatures.entity.client.network.LuggageNetworkHandler;
 import net.jacob.bygonecreatures.entity.custom.AukEntity;
+import net.jacob.bygonecreatures.entity.custom.BearEntity;
 import net.jacob.bygonecreatures.entity.custom.DragonflyEntity;
 import net.jacob.bygonecreatures.entity.custom.ProtoceratopsEntity;
+import net.jacob.bygonecreatures.entity.util.BCConfig;
 import net.jacob.bygonecreatures.item.ModItems;
 import net.jacob.bygonecreatures.world.feature.tree.ModConfiguredFeatures;
 import net.jacob.bygonecreatures.world.feature.tree.ModPlacedFeatures;
@@ -28,7 +30,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -88,6 +92,7 @@ public class BygoneCreatures
         ModEntityTypes.register(modEventBus);
 
 
+    
 
 
     }
@@ -105,6 +110,8 @@ public class BygoneCreatures
 
         SpawnPlacements.register(ModEntityTypes.DIPLOCAULUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.BEAR.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
+
         LuggageNetworkHandler.init();
 
 
@@ -112,6 +119,9 @@ public class BygoneCreatures
                     SpawnPlacements.register(ModEntityTypes.GLYPTODON.get(),
                             SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                             Animal::checkAnimalSpawnRules);
+
+
+
 
                     SpawnPlacements.register(ModEntityTypes.RAPTOR.get(),
                             SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

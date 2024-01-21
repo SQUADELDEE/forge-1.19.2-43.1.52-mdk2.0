@@ -1,0 +1,23 @@
+{
+
+  "structures": [
+    {
+      "structure": "bygonecreatures:arg_nest",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1642136475,
+
+
+    "spacing": 40,
+
+
+    "separation": 20,
+
+
+    "type": "minecraft:random_spread"
+  }
+
+}

@@ -14,17 +14,23 @@ public class GlyptodonModel extends AnimatedGeoModel<GlyptodonEntity> {
 
     @Override
     public ResourceLocation getModelResource(GlyptodonEntity object) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "geo/glyptodon2.geo.json");
+
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "geo/glyptodonchest.geo.json");
+
+
     }
 
     @Override
     public ResourceLocation getTextureResource(GlyptodonEntity object) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/gtexture.png");
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/glyptodon/blanktext.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(GlyptodonEntity animatable) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "animations/glyptodon.animation2.json");
+
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "animations/glyptodonchest.animation.json");
+
+
     }
 
 

@@ -1,0 +1,88 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.dodoupdate",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "central",
+					"pivot": [0, 10, 0]
+				},
+				{
+					"name": "headhold",
+					"parent": "central",
+					"pivot": [0, 9, -4]
+				},
+				{
+					"name": "head",
+					"parent": "headhold",
+					"pivot": [0, 9, -4],
+					"cubes": [
+						{"origin": [-3, 8, -7], "size": [6, 16, 6], "uv": [0, 23]},
+						{"origin": [-3, 18, -9], "size": [6, 3, 2], "uv": [36, 23]},
+						{"origin": [-3, 16, -12], "size": [6, 5, 3], "uv": [36, 0]}
+					]
+				},
+				{
+					"name": "core",
+					"parent": "central",
+					"pivot": [0, 2, 0],
+					"cubes": [
+						{"origin": [-6, 6, -4], "size": [12, 11, 12], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "feather",
+					"parent": "central",
+					"pivot": [-6.5, 12.5, -2],
+					"cubes": [
+						{"origin": [-7, 9, -2], "size": [1, 7, 8], "uv": [36, 30]}
+					]
+				},
+				{
+					"name": "feather2",
+					"parent": "central",
+					"pivot": [6.5, 12.5, -2],
+					"cubes": [
+						{"origin": [6, 9, -2], "size": [1, 7, 8], "uv": [26, 23]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "central",
+					"pivot": [0, 16, 8],
+					"cubes": [
+						{"origin": [-4, 19, 8], "size": [8, 0, 6], "uv": [12, 23]},
+						{"origin": [-4, 10, 14], "size": [8, 9, 0], "uv": [36, 45]},
+						{"origin": [-4, 16, 8], "size": [8, 3, 0], "uv": [36, 8]},
+						{"origin": [-4, 10, 8], "size": [0, 9, 6], "uv": [24, 32]},
+						{"origin": [4, 10, 8], "size": [0, 9, 6], "uv": [0, 39]}
+					]
+				},
+				{
+					"name": "leg",
+					"pivot": [2.5, 5.5, 2.25],
+					"cubes": [
+						{"origin": [1, 0, -1], "size": [3, 0, 3], "uv": [0, 0]},
+						{"origin": [2, 0, 2], "size": [1, 6, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leg2",
+					"pivot": [-2.5, 5.5, 2.25],
+					"cubes": [
+						{"origin": [-3, 0, 2], "size": [1, 6, 0], "uv": [0, 6]},
+						{"origin": [-4, 0, -1], "size": [3, 0, 3], "uv": [0, 3]}
+					]
+				}
+			]
+		}
+	]
+}

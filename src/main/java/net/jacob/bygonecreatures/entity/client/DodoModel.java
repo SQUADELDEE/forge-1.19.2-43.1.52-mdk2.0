@@ -14,27 +14,27 @@ public class DodoModel extends AnimatedGeoModel<DodoEntity> {
 
     @Override
     public ResourceLocation getModelResource(DodoEntity object) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "geo/dodoanimationsnew.geo.json");
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "geo/dodoupdate.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(DodoEntity object) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/bodytexture.png");
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/redo.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(DodoEntity animatable) {
-        return new ResourceLocation(BygoneCreatures.MOD_ID, "animations/ok.animationfinal.json");
+        return new ResourceLocation(BygoneCreatures.MOD_ID, "animations/dodoupdate.animation.json");
     }
 
-//    @Override
-//    public void setLivingAnimations(DodoEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
-//        super.setCustomAnimations(entity, uniqueID, customPredicate);
-//        IBone head_rotation = this.getAnimationProcessor().getBone("head");
-//
-//        EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
-//
-//        head_rotation.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
-//        head_rotation.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
-//    }
+    @Override
+    public void setLivingAnimations(DodoEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
+        super.setCustomAnimations(entity, uniqueID, customPredicate);
+        IBone head_rotation = this.getAnimationProcessor().getBone("headhold");
+
+        EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
+
+        head_rotation.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
+        head_rotation.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+    }
 }

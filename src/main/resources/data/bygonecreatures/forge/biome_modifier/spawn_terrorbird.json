@@ -5,7 +5,7 @@
   ],
   "spawners": {
     "type": "bygonecreatures:terrorbird",
-    "weight": 20,
+    "weight": 15,
     "minCount": 1,
     "maxCount": 1
   }

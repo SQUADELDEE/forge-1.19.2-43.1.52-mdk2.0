@@ -26,7 +26,7 @@
 				{
 					"name": "head",
 					"parent": "neck",
-					"pivot": [0, 0, 0],
+					"pivot": [0, 14, -24],
 					"cubes": [
 						{"origin": [-6, 8, -38], "size": [12, 12, 14], "uv": [176, 45]}
 					]

@@ -48,13 +48,22 @@ public class DodoEntity extends Animal implements IAnimatable {
 
 
 
+    @Override
+    public int getMaxHeadYRot() {
+        return 20;
+    }
+
+    @Override
+    public int getMaxHeadXRot() {
+        return 20;
+    }
 
 
 
     public static AttributeSupplier.Builder setAttributes() {
         return Animal.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 5D)
-                .add(Attributes.MOVEMENT_SPEED, 0.15D)
+                .add(Attributes.MAX_HEALTH, 6D)
+                .add(Attributes.MOVEMENT_SPEED, 0.25D)
                 .add(Attributes.FOLLOW_RANGE, 100);
 
 
@@ -114,11 +123,11 @@ public class DodoEntity extends Animal implements IAnimatable {
 
     public <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("dodowalk", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("dodoidle", ILoopType.EDefaultLoopTypes.LOOP));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
 

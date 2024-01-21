@@ -20,6 +20,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -45,6 +49,25 @@ import java.util.function.Predicate;
 import static net.jacob.bygonecreatures.item.ModItems.*;
 
 public class RaptorEntity extends TamableAnimal implements IAnimatable {
+
+    //prevents tamable entities from attacking other tamed ones. ALWAYS INCLUDE FOR MODDED TAMAMBLES
+
+    public boolean wantsToAttack(LivingEntity entity, LivingEntity livingentity) {
+        if (!(entity instanceof Creeper) && !(entity instanceof Ghast)) {
+            if (entity instanceof Wolf) {
+                Wolf wolf = (Wolf)entity;
+                return !wolf.isTame() || wolf.getOwner() != livingentity;
+            } else if (entity instanceof Player && livingentity instanceof Player && !((Player)livingentity).canHarmPlayer((Player)entity)) {
+                return false;
+            } else if (entity instanceof AbstractHorse && ((AbstractHorse)entity).isTamed()) {
+                return false;
+            } else {
+                return !(entity instanceof TamableAnimal) || !((TamableAnimal)entity).isTame();
+            }
+        } else {
+            return false;
+        }
+    }
 
     private static final EntityDataAccessor<Integer> ATTACK_TICK = SynchedEntityData.defineId(RaptorEntity.class, EntityDataSerializers.INT);
 

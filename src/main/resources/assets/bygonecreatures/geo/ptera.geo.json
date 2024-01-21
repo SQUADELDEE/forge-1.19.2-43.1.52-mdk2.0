@@ -1,0 +1,197 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ptera",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 0, -7], "size": [6, 6, 13], "uv": [0, 14]}
+					]
+				},
+				{
+					"name": "wing",
+					"parent": "bone",
+					"pivot": [-2.5, 3, -3],
+					"cubes": [
+						{"origin": [-14, 2, -4], "size": [11, 2, 2], "uv": [0, 41]}
+					]
+				},
+				{
+					"name": "flap",
+					"parent": "wing",
+					"pivot": [-8.5, 3, -2],
+					"cubes": [
+						{"origin": [-14, 3, -2], "size": [11, 0, 8], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "secondary",
+					"parent": "wing",
+					"pivot": [-14, 3, -3.5],
+					"cubes": [
+						{"origin": [-32, 2, -4], "size": [18, 2, 1], "uv": [30, 36]}
+					]
+				},
+				{
+					"name": "flap2",
+					"parent": "secondary",
+					"pivot": [-23.5, 3, -3.5],
+					"cubes": [
+						{"origin": [-33, 3, -3], "size": [19, 0, 7], "uv": [0, 7]}
+					]
+				},
+				{
+					"name": "claw",
+					"parent": "wing",
+					"pivot": [-10, 3, -4],
+					"cubes": [
+						{"origin": [-14, 3, -8], "size": [4, 0, 4], "uv": [0, 18]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "bone",
+					"pivot": [2.5, 3, -3],
+					"cubes": [
+						{"origin": [3, 2, -4], "size": [11, 2, 2], "uv": [34, 39]}
+					]
+				},
+				{
+					"name": "flap3",
+					"parent": "wing2",
+					"pivot": [8.5, 3, -2],
+					"cubes": [
+						{"origin": [3, 3, -2], "size": [11, 0, 8], "uv": [30, 25]}
+					]
+				},
+				{
+					"name": "secondary2",
+					"parent": "wing2",
+					"pivot": [14, 3, -3.5],
+					"cubes": [
+						{"origin": [14, 2, -4], "size": [18, 2, 1], "uv": [30, 33]}
+					]
+				},
+				{
+					"name": "flap4",
+					"parent": "secondary2",
+					"pivot": [23.5, 3, -2.5],
+					"cubes": [
+						{"origin": [14, 3, -3], "size": [19, 0, 7], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "claw2",
+					"parent": "wing2",
+					"pivot": [10, 3, -4],
+					"cubes": [
+						{"origin": [10, 3, -8], "size": [4, 0, 4], "uv": [0, 14]}
+					]
+				},
+				{
+					"name": "foot",
+					"parent": "bone",
+					"pivot": [-3, 0, 4],
+					"cubes": [
+						{"origin": [-4, -1, 4], "size": [2, 2, 6], "uv": [45, 13]}
+					]
+				},
+				{
+					"name": "toe2",
+					"parent": "foot",
+					"pivot": [-3, 1, 10],
+					"cubes": [
+						{"origin": [-5, -5, 10], "size": [4, 6, 0], "uv": [18, 52]}
+					]
+				},
+				{
+					"name": "foot2",
+					"parent": "bone",
+					"pivot": [3, 0, 4],
+					"cubes": [
+						{"origin": [2, -1, 4], "size": [2, 2, 6], "uv": [45, 5]}
+					]
+				},
+				{
+					"name": "toe",
+					"parent": "foot2",
+					"pivot": [3, 1, 10],
+					"cubes": [
+						{"origin": [1, -5, 10], "size": [4, 6, 0], "uv": [0, 33]}
+					]
+				},
+				{
+					"name": "neckhold",
+					"parent": "bone",
+					"pivot": [0, 3, -6.5],
+					"cubes": [
+						{"origin": [-1, 1, -9], "size": [2, 4, 3], "uv": [42, 50]}
+					]
+				},
+				{
+					"name": "headhold",
+					"parent": "neckhold",
+					"pivot": [0, 3, -9]
+				},
+				{
+					"name": "head",
+					"parent": "headhold",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, 1, -14], "size": [4, 4, 5], "uv": [0, 45]}
+					]
+				},
+				{
+					"name": "upjaw",
+					"parent": "head",
+					"pivot": [0, 3.5, -14.5],
+					"cubes": [
+						{"origin": [-2, 3, -19], "size": [4, 1, 5], "uv": [47, 44]}
+					]
+				},
+				{
+					"name": "lowjaw",
+					"parent": "head",
+					"pivot": [0, 2.5, -14.5],
+					"cubes": [
+						{"origin": [-2, 2, -19], "size": [4, 1, 5], "uv": [34, 43]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "bone",
+					"pivot": [0, 3, 5.5],
+					"cubes": [
+						{"origin": [-1, 2, 6], "size": [2, 2, 11], "uv": [19, 39]}
+					]
+				},
+				{
+					"name": "end",
+					"parent": "tail",
+					"pivot": [0, 3, 17.5],
+					"cubes": [
+						{"origin": [-1, 3, 17], "size": [2, 0, 11], "uv": [34, 0]}
+					]
+				},
+				{
+					"name": "fluke",
+					"parent": "end",
+					"pivot": [0, 3, 28.5],
+					"cubes": [
+						{"origin": [-5, 3, 28], "size": [10, 0, 11], "uv": [14, 14]}
+					]
+				}
+			]
+		}
+	]
+}

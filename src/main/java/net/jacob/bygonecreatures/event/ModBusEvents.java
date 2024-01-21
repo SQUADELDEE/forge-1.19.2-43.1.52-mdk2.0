@@ -42,6 +42,11 @@ public class ModBusEvents {
             event.put(ModEntityTypes.DIPLOCAULUS.get(), DiplocaulusEntity.createAttributes().build());
             event.put(ModEntityTypes.MOUSE.get(), MouseEntity.setAttributes().build());
             event.put(ModEntityTypes.ANOMALOCARIS.get(), AnomaloEntity.setAttributes().build());
+            event.put(ModEntityTypes.CURLYCOAT.get(), CurlyCoatEntity.setAttributes().build());
+            event.put(ModEntityTypes.ARGEN.get(), ArgenEntity.createAttributes().build());
+            event.put(ModEntityTypes.PTERA.get(), PteraEntity.bakeAttributes().build());
+            event.put(ModEntityTypes.BEAR.get(), BearEntity.setAttributes().build());
+            event.put(ModEntityTypes.PECCARY.get(), PeccaryEntity.setAttributes().build());
         }
 
         @SubscribeEvent
@@ -60,6 +65,11 @@ public class ModBusEvents {
             event.registerEntityRenderer(ModEntityTypes.DIPLOCAULUS.get(), DiploRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.MOUSE.get(), MouseRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.ANOMALOCARIS.get(), AnomalocarisRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.CURLYCOAT.get(), CurlyCoatRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.ARGEN.get(), ArgenRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.PTERA.get(), PteraRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.BEAR.get(), BearRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.PECCARY.get(), PeccaryRenderer::new);
         }
 
 

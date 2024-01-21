@@ -24,10 +24,10 @@ public class DodoRenderer extends GeoEntityRenderer<DodoEntity> {
 
 
         if (instance.isBaby()){
-            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/chicktexture.png");
+            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/redo.png");
 
         } else {
-            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/bodytexture.png");
+            return new ResourceLocation(BygoneCreatures.MOD_ID, "textures/entity/dodo/redo.png");
 
         }
     }

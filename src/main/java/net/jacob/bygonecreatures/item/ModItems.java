@@ -112,6 +112,10 @@ public class ModItems {
     public static final RegistryObject<Item>  FLIPPERS = ITEMS.register("flippers",
             () -> new FinSet(ModArmorMaterials.FIN, EquipmentSlot.FEET,  new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
+    public static final RegistryObject<Item> SMOLDERSTEAK = ITEMS.register("smoldersteak",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB).food(ModFoods.SMOLDERSTEAK)));
+
+
 
 
 
@@ -168,6 +172,28 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
     public static final RegistryObject<Item> DIPLOSPAWNEGG = ITEMS.register("diplospawnegg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DIPLOCAULUS,0x3d85c6, 0xffd700,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> CURLYCOATSPAWNEGG = ITEMS.register("curlycoatspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CURLYCOAT,0xe15c1f, 0xf4cccc,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> ARGENSPAWNEGG = ITEMS.register("argenspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ARGEN,0x744700, 0x3d85c6,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+
+    public static final RegistryObject<Item> PTERASPAWNEGG = ITEMS.register("pteraspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.PTERA,0x343330, 0xf29313,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+
+    public static final RegistryObject<Item> BEARSPAWNEGG = ITEMS.register("bearspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.BEAR,0x503715, 0x342105,
+                    new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
+
+    public static final RegistryObject<Item> PECCARYSPAWNEGG = ITEMS.register("peccaryspawnegg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.PECCARY,0x503715, 0x342105,
                     new Item.Properties().tab(ModCreativeModeTab.BygoneCreatures_TAB)));
 
 
